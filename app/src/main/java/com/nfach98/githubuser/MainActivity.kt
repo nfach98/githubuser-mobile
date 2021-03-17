@@ -1,8 +1,11 @@
 package com.nfach98.githubuser
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,14 +31,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        load("nfach")
 
-        binding.searchUsername.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        adapter = UserAdapter(arrayListOf())
+
+        binding.rvUsers.adapter = adapter
+
+        binding.rvUsers.setHasFixedSize(true)
+        binding.rvUsers.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_home, menu)
+
+        val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val sv = menu?.findItem(R.id.search)?.actionView as androidx.appcompat.widget.SearchView?
+
+        sv?.setSearchableInfo(sm.getSearchableInfo(componentName))
+        sv?.queryHint = resources.getString(R.string.search)
+        sv?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     load(query)
                 }
-
-                return true
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -44,12 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        adapter = UserAdapter(arrayListOf())
-
-        binding.rvUsers.adapter = adapter
-
-        binding.rvUsers.setHasFixedSize(true)
-        binding.rvUsers.layoutManager = LinearLayoutManager(this)
+        return true
     }
 
     private fun load(search: String) {
