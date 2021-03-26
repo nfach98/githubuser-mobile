@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.api.ApiMain

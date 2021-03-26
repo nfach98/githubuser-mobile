@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_motion_scene"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="@color/purple_700"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toTopOf="@id/scroll_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Stub"
+            android:textSize="24sp" />
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- <ImageView
+         android:id="@+id/iv_curve"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:adjustViewBounds="true"
+         android:importantForAccessibility="no"
+         android:scaleType="fitXY"
+         android:src="@drawable/curve"
+         app:layout_constraintBottom_toTopOf="@id/scroll_view"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="8dp"
+        app:layout_constraintDimensionRatio="1.0"
+        app:layout_constraintTop_toTopOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        android:src="@drawable/ic_baseline_arrow_back_24"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.4"
+        app:layout_constraintDimensionRatio="1.0"
+        android:layout_margin="20dp"
+        android:src="@drawable/user1"
+        app:layout_constraintTop_toTopOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        tools:text="Place"
+        android:textColor="@color/white"
+        android:textSize="48sp"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
