@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.api.ApiMain
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.app.main.MainViewModel
@@ -23,6 +25,13 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var viewModel: DetailViewModel
     private lateinit var user: Item
+
+    companion object {
+        private val TAB_TITLES = arrayOf(
+            "Follower",
+            "Following"
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +57,13 @@ class DetailActivity : AppCompatActivity() {
     private fun setupView(){
         supportActionBar?.title = user.login
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val pagerAdapter = DetailFollowPagerAdapter(this)
+        binding.viewPager.adapter = pagerAdapter
+
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = TAB_TITLES[position]
+        }.attach()
     }
 
     private fun load(username: String) {
