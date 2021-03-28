@@ -1,11 +1,15 @@
 package com.nfach98.githubuser.app.main
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.databinding.ActivityMainBinding
 import com.nfach98.githubuser.model.Item
@@ -40,28 +44,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupView(){
         adapter = MainUserAdapter(arrayListOf())
 
-        binding.search.setOnQueryTextListener(object : android.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    loadSearch(query)
-                }
-
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return true
-            }
-
-        })
-
         binding.rvUsers.adapter = adapter
 
         binding.rvUsers.setHasFixedSize(true)
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
 
@@ -74,8 +63,7 @@ class MainActivity : AppCompatActivity() {
         sv?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
-                    load(query)
-                    sv.onActionViewCollapsed()
+                    loadSearch(query)
                 }
                 return true
             }
@@ -87,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         return true
-    }*/
+    }
 
     private fun loadSearch(search: String) {
         binding.rvUsers.visibility = View.GONE
