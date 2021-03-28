@@ -1,16 +1,15 @@
-package com.nfach98.githubuser
+package com.nfach98.githubuser.app.detail
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.nfach98.githubuser.api.ApiMain
+import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.model.Item
 import com.nfach98.githubuser.model.UserResponse
-import com.nfach98.githubuser.model.UserSearchResponse
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -50,14 +49,15 @@ class DetailActivity : AppCompatActivity() {
 
                     response.body().also {
                         if (it != null) {
-                            if(it.name != null) {
-                                binding.tvName.visibility = View.VISIBLE
-                                binding.tvName.text = it.name
-                            }
-                            else{
-                                binding.tvName.visibility = View.GONE
-                            }
+                            binding.tvName.text = it.name
                             binding.tvUsername.text = it.login
+                            binding.tvBio.text = it.bio
+                            binding.tvFollowers.text = it.followers.toString()
+                            binding.tvFollowing.text = it.following.toString()
+
+                            if(it.name == null) binding.tvName.visibility = View.GONE
+                            if(it.bio == null) binding.tvBio.visibility = View.GONE
+
                             Picasso.get().load(it.avatarUrl).into(binding.ivAvatar)
                         }
                     }

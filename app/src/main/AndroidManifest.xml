@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUser">
         <activity
-            android:name=".DetailActivity" />
+            android:name=".app.detail.DetailActivity" />
         <activity android:name=".MotionActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".app.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,5 @@
-package com.nfach98.githubuser
+package com.nfach98.githubuser.app.main
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +7,7 @@ import com.nfach98.githubuser.databinding.ItemUserBinding
 import com.nfach98.githubuser.model.Item
 import com.squareup.picasso.Picasso
 
-class UserAdapter(private val users: ArrayList<Item>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class MainUserAdapter(private val users: ArrayList<Item>) : RecyclerView.Adapter<MainUserAdapter.UserViewHolder>() {
 
     private var onItemActionCallback: OnItemActionCallback? = null
 

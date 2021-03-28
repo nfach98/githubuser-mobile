@@ -3,6 +3,7 @@ package com.nfach98.githubuser
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityMotionBinding
 import com.nfach98.githubuser.model.Item
 import com.squareup.picasso.Picasso
