@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="@color/github_black"
         app:layout_constraintTop_toTopOf="@id/iv_avatar"
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
         tools:text="Nama"/>

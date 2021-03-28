@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:background="@color/purple_700"
+        android:background="@color/github_black"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toTopOf="@id/scroll_view"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:elevation="12dp"
         tools:text="Place"
-        android:textColor="@color/white"
+        android:textColor="@color/github_white"
         android:textSize="48sp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
