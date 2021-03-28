@@ -5,10 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuItemCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     loadSearch(query)
+                    sv.clearFocus()
                 }
                 return true
             }
@@ -74,6 +77,18 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
 
+        })
+
+        MenuItemCompat.setOnActionExpandListener(menu?.findItem(R.id.search), object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+                loadSearch("")
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                loadSearch("")
+                return true
+            }
         })
 
         return true
@@ -92,10 +107,10 @@ class MainActivity : AppCompatActivity() {
         binding.loading.visibility = View.VISIBLE
 
         viewModel.getSearch(search).observe(this, {
-            if(it != null){
-                binding.loading.visibility = View.GONE
-                binding.rvUsers.visibility = View.VISIBLE
+            binding.loading.visibility = View.GONE
+            binding.rvUsers.visibility = View.VISIBLE
 
+            if (it != null) {
                 adapter = MainUserAdapter(it.items)
                 adapter.setOnItemClickCallback(object : MainUserAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: Item) {
@@ -104,6 +119,10 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                 })
+                binding.rvUsers.adapter = adapter
+            }
+            else{
+                adapter = MainUserAdapter(arrayListOf())
                 binding.rvUsers.adapter = adapter
             }
         })
