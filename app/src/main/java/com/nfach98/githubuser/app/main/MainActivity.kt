@@ -2,8 +2,8 @@ package com.nfach98.githubuser.app.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.app.detail.DetailActivity
@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         setupView()
         setupData()
+
+        binding.loading.visibility = View.GONE
     }
 
     private fun setupData(){
@@ -88,8 +90,14 @@ class MainActivity : AppCompatActivity() {
     }*/
 
     private fun loadSearch(search: String) {
-        viewModel.getSearch(search).observe(this, Observer {
+        binding.rvUsers.visibility = View.GONE
+        binding.loading.visibility = View.VISIBLE
+
+        viewModel.getSearch(search).observe(this, {
             if(it != null){
+                binding.loading.visibility = View.GONE
+                binding.rvUsers.visibility = View.VISIBLE
+
                 adapter = MainUserAdapter(it.items)
                 adapter.setOnItemClickCallback(object : MainUserAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: Item) {
