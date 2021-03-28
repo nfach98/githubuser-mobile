@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
+import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.model.Item
@@ -18,9 +19,9 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var user: Item
 
     companion object {
-        private val TAB_TITLES = arrayOf(
-            "Follower",
-            "Following"
+        private val TAB_TITLES = intArrayOf(
+            R.string.follower,
+            R.string.following
         )
     }
 
@@ -70,8 +71,8 @@ class DetailActivity : AppCompatActivity() {
 
                 TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
                     when(position){
-                        0 -> tab.text = "${TAB_TITLES[position]} (${it.followers})"
-                        1 -> tab.text = "${TAB_TITLES[position]} (${it.following})"
+                        0 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.followers})"
+                        1 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.following})"
                     }
                 }.attach()
             }
