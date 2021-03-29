@@ -7,7 +7,7 @@ import com.nfach98.githubuser.databinding.ItemUserBinding
 import com.nfach98.githubuser.model.Item
 import com.squareup.picasso.Picasso
 
-class MainUserAdapter(private val users: ArrayList<Item>) : RecyclerView.Adapter<MainUserAdapter.UserViewHolder>() {
+class MainAdapter(private val users: ArrayList<Item>) : RecyclerView.Adapter<MainAdapter.UserViewHolder>() {
 
     private var onItemActionCallback: OnItemActionCallback? = null
 

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.app.main.MainActivity
-import com.nfach98.githubuser.app.main.MainUserAdapter
+import com.nfach98.githubuser.app.main.MainAdapter
 import com.nfach98.githubuser.databinding.FragmentDetailFollowBinding
 import com.nfach98.githubuser.model.Item
 
@@ -53,8 +53,8 @@ class DetailFollowFragment : Fragment() {
                 0 -> {
                     viewModel.getUserFollower(username).observe(this, {
                         if(it != null){
-                            val adapter = MainUserAdapter(it)
-                            adapter.setOnItemClickCallback(object : MainUserAdapter.OnItemActionCallback {
+                            val adapter = MainAdapter(it)
+                            adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                                 override fun onItemClicked(data: Item) {
                                     val intent = Intent(context, DetailActivity::class.java)
                                     intent.putExtra(MainActivity.EXTRA_USER, data)
@@ -69,8 +69,8 @@ class DetailFollowFragment : Fragment() {
                 1 -> {
                     viewModel.getUserFollowing(username).observe(this, {
                         if(it != null){
-                            val adapter = MainUserAdapter(it)
-                            adapter.setOnItemClickCallback(object : MainUserAdapter.OnItemActionCallback {
+                            val adapter = MainAdapter(it)
+                            adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                                 override fun onItemClicked(data: Item) {
                                     val intent = Intent(context, DetailActivity::class.java)
                                     intent.putExtra(MainActivity.EXTRA_USER, data)

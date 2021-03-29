@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
+import com.nfach98.githubuser.app.favorite.FavoriteActivity
 import com.nfach98.githubuser.databinding.ActivityMainBinding
 import com.nfach98.githubuser.model.Item
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         const val EXTRA_USER = "extra_user"
     }
 
-    private lateinit var adapter: MainUserAdapter
+    private lateinit var adapter: MainAdapter
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView(){
-        adapter = MainUserAdapter(arrayListOf())
+        adapter = MainAdapter(arrayListOf())
 
         binding.rvUsers.adapter = adapter
 
@@ -97,6 +98,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
+        else if (item.itemId == R.id.menu_favorite) {
+            startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -109,8 +114,8 @@ class MainActivity : AppCompatActivity() {
             binding.rvUsers.visibility = View.VISIBLE
 
             if (it != null) {
-                adapter = MainUserAdapter(it.items)
-                adapter.setOnItemClickCallback(object : MainUserAdapter.OnItemActionCallback {
+                adapter = MainAdapter(it.items)
+                adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: Item) {
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
                         intent.putExtra(EXTRA_USER, data)
@@ -120,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                 binding.rvUsers.adapter = adapter
             }
             else{
-                adapter = MainUserAdapter(arrayListOf())
+                adapter = MainAdapter(arrayListOf())
                 binding.rvUsers.adapter = adapter
             }
         })

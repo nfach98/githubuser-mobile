@@ -3,21 +3,20 @@ package com.nfach98.githubuser.app.favorite
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.nfach98.githubuser.app.main.MainUserAdapter
 import com.nfach98.githubuser.databinding.ItemUserBinding
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
 
-class FavoriteAdapter() : RecyclerView.Adapter<FavoriteAdapter.UserViewHolder>() {
+class FavoriteAdapter(var users : ArrayList<UserDetail>) : RecyclerView.Adapter<FavoriteAdapter.UserViewHolder>() {
 
-    var users = ArrayList<UserDetail>()
+    /*var users = ArrayList<UserDetail>()
         set(users) {
             if (users.size > 0) {
                 this.users.clear()
             }
             this.users.addAll(users)
             notifyDataSetChanged()
-        }
+        }*/
 
     private var onItemActionCallback: OnItemActionCallback? = null
 
