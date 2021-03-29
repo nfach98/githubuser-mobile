@@ -4,14 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search"
+        android:id="@+id/menu_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
 
     <item
-        android:id="@+id/setting"
+        android:id="@+id/menu_favorite"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/favorite"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_setting"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/setting"
         app:showAsAction="ifRoom" />

@@ -3,6 +3,7 @@
     <string name="user_avatar">User Avatar</string>
     <string name="search">Search</string>
     <string name="setting">Settings</string>
+    <string name="favorite">Favorite</string>
     <string name="following">Following</string>
     <string name="follower">Follower</string>
 
@@ -109,4 +110,8 @@
         <item>@drawable/user9</item>
         <item>@drawable/user10</item>
     </array>
+    <string name="title_activity_home" translatable="false">MainActivity</string>
+    <string name="title_home" translatable="false">Home</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
+    <string name="title_notifications" translatable="false">Notifications</string>
 </resources>

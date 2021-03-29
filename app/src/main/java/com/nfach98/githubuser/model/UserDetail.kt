@@ -1,9 +1,12 @@
 package com.nfach98.githubuser.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class UserResponse(
+@Parcelize
+data class UserDetail(
     @SerializedName("avatar_url")
     val avatarUrl: String? = null,
 
@@ -20,7 +23,7 @@ data class UserResponse(
     val createdAt: String? = null,
 
     @SerializedName("email")
-    val email: Any,
+    val email: String? = null,
 
     @SerializedName("events_url")
     val eventsUrl: String? = null,
@@ -44,7 +47,7 @@ data class UserResponse(
     val gravatarId: String? = null,
 
     @SerializedName("hireable")
-    val hireable: Any,
+    val hireable: Boolean,
 
     @SerializedName("html_url")
     val htmlUrl: String? = null,
@@ -99,4 +102,4 @@ data class UserResponse(
 
     @SerializedName("url")
     val url: String? = null
-)
+) : Parcelable

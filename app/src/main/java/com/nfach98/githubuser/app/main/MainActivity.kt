@@ -9,7 +9,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.MenuItemCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.menu_home, menu)
 
         val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val sv = menu?.findItem(R.id.search)?.actionView as androidx.appcompat.widget.SearchView?
+        val sv = menu?.findItem(R.id.menu_search)?.actionView as androidx.appcompat.widget.SearchView?
 
         sv?.setSearchableInfo(sm.getSearchableInfo(componentName))
         sv?.queryHint = resources.getString(R.string.search)
@@ -78,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        MenuItemCompat.setOnActionExpandListener(menu?.findItem(R.id.search), object : MenuItemCompat.OnActionExpandListener {
+        /*MenuItemCompat.setOnActionExpandListener(menu?.findItem(R.id.search), object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem): Boolean {
                 loadSearch("")
                 return true
@@ -88,13 +87,13 @@ class MainActivity : AppCompatActivity() {
                 loadSearch("")
                 return true
             }
-        })
+        })*/
 
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.setting) {
+        if (item.itemId == R.id.menu_setting) {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 

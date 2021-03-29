@@ -1,8 +1,7 @@
 package com.nfach98.githubuser.api
 
 import com.nfach98.githubuser.model.Item
-import com.nfach98.githubuser.model.UserFollowModel
-import com.nfach98.githubuser.model.UserResponse
+import com.nfach98.githubuser.model.UserDetail
 import com.nfach98.githubuser.model.UserSearchResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -14,7 +13,7 @@ interface ApiServices {
     fun search(@Query("q") username: String): Call<UserSearchResponse>
 
     @GET("users/{username}")
-    fun getUser(@Path("username") username: String): Call<UserResponse>
+    fun getUser(@Path("username") username: String): Call<UserDetail>
 
     @GET("users/{username}/followers")
     fun getUserFollower(@Path("username") username: String): Call<ArrayList<Item>>
