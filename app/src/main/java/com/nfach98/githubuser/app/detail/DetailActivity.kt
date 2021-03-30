@@ -1,13 +1,14 @@
 package com.nfach98.githubuser.app.detail
 
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.favorite.FavoriteViewModel
@@ -15,10 +16,8 @@ import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.db.UserApplication
-import com.nfach98.githubuser.model.Item
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -47,8 +46,6 @@ class DetailActivity : AppCompatActivity() {
 
         setupData()
         setupView()
-
-        load(username)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -59,6 +56,14 @@ class DetailActivity : AppCompatActivity() {
     private fun setupData() {
         username = intent.getStringExtra(MainActivity.EXTRA_USER).toString()
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
+
+        GlobalScope.launch {
+            val userOnDb = favoriteViewModel.getByUsername(username)
+            if(userOnDb != null) {
+                binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
+            }
+        }
+        load(username)
     }
 
     private fun setupView(){

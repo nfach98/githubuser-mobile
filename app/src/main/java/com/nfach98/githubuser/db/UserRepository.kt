@@ -8,6 +8,10 @@ class UserRepository(private val userDao: UserDao) {
 
     val allUsers: Flow<List<UserDetail>> = userDao.getAll()
 
+    fun getByUsername(username: String): UserDetail? {
+        return userDao.findByUsername(username)
+    }
+
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(user: UserDetail) {

@@ -9,6 +9,10 @@ import kotlinx.coroutines.launch
 class FavoriteViewModel(private val repository: UserRepository) : ViewModel() {
     val users: LiveData<List<UserDetail>> = repository.allUsers.asLiveData()
 
+    fun getByUsername(username: String): UserDetail?{
+        return repository.getByUsername(username)
+    }
+
     fun insert(user: UserDetail) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(user)
     }

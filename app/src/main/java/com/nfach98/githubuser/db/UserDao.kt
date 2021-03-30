@@ -12,8 +12,11 @@ interface UserDao {
     @Query("SELECT * FROM userdetail")
     fun getAll(): Flow<List<UserDetail>>
 
-    @Query("SELECT * FROM userdetail WHERE id LIKE :id")
-    fun findByName(id: Int): UserDetail
+    @Query("SELECT * FROM userdetail WHERE id = :id")
+    fun findById(id: Int): UserDetail?
+
+    @Query("SELECT * FROM userdetail WHERE login = :username")
+    fun findByUsername(username: String): UserDetail?
 
     @Insert
     fun insert(vararg users: UserDetail)
