@@ -45,6 +45,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView(){
+        supportActionBar?.apply {
+            setDisplayShowHomeEnabled(true)
+            setDisplayUseLogoEnabled(true)
+            setLogo(R.drawable.ic_github_logo_24dp)
+            title = ""
+        }
+
         adapter = MainAdapter(arrayListOf())
 
         binding.rvUsers.adapter = adapter
@@ -118,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                 adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: Item) {
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                        intent.putExtra(EXTRA_USER, data)
+                        intent.putExtra(EXTRA_USER, data.login)
                         startActivity(intent)
                     }
                 })

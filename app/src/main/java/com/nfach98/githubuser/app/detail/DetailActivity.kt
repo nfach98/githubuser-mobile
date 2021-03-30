@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
-    private lateinit var user: Item
+    private lateinit var username: String
     private lateinit var userDetail: UserDetail
 
     private lateinit var viewModel: DetailViewModel
@@ -48,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
         setupData()
         setupView()
 
-        load(user.login)
+        load(username)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -57,12 +57,12 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupData() {
-        user = intent.getParcelableExtra<Item>(MainActivity.EXTRA_USER) as Item
+        username = intent.getStringExtra(MainActivity.EXTRA_USER).toString()
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
     }
 
     private fun setupView(){
-        supportActionBar?.title = user.login
+        supportActionBar?.title = username
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnFavorite.setOnClickListener {
@@ -94,7 +94,7 @@ class DetailActivity : AppCompatActivity() {
 
                 Picasso.get().load(it.avatarUrl).into(binding.ivAvatar)
 
-                val pagerAdapter = DetailFollowPagerAdapter(this, user.login)
+                val pagerAdapter = DetailFollowPagerAdapter(this, username)
                 binding.viewPager.adapter = pagerAdapter
 
                 TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->

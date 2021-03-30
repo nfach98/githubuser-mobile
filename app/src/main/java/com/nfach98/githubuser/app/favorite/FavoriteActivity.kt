@@ -1,17 +1,24 @@
 package com.nfach98.githubuser.app.favorite
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
+import com.nfach98.githubuser.app.detail.DetailActivity
+import com.nfach98.githubuser.app.main.MainActivity
+import com.nfach98.githubuser.app.main.MainAdapter
 import com.nfach98.githubuser.databinding.ActivityFavoriteBinding
 import com.nfach98.githubuser.db.UserApplication
+import com.nfach98.githubuser.model.Item
 import com.nfach98.githubuser.model.UserDetail
 
 class FavoriteActivity : AppCompatActivity() {
 
+    private lateinit var adapter: FavoriteAdapter
     private lateinit var binding: ActivityFavoriteBinding
     private val viewModel: FavoriteViewModel by viewModels {
         FavoriteViewModelFactory((application as UserApplication).repository)
@@ -29,25 +36,32 @@ class FavoriteActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.favorite)
 
-        val adapter = FavoriteAdapter(arrayListOf())
+        adapter = FavoriteAdapter()
         binding.rvUsers.adapter = adapter
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.setHasFixedSize(true)
 
-        viewModel.users.observe(this, {
-            it.let {
-                binding.rvUsers.adapter = FavoriteAdapter(it as ArrayList<UserDetail>)
-            }
-        })
-
-       /* if (savedInstanceState == null) {
-            loadNotesAsync()
+        if (savedInstanceState == null) {
+            viewModel.users.observe(this, {
+                it.let {
+                    adapter.users = it as ArrayList<UserDetail>
+                    adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
+                        override fun onItemClicked(data: UserDetail) {
+                            val intent = Intent(this@FavoriteActivity, DetailActivity::class.java)
+                            intent.putExtra(MainActivity.EXTRA_USER, data.login)
+                            startActivity(intent)
+                        }
+                    })
+                    binding.loading.visibility = View.GONE
+                    binding.rvUsers.visibility = View.VISIBLE
+                }
+            })
         } else {
             val list = savedInstanceState.getParcelableArrayList<UserDetail>(EXTRA_STATE)
             if (list != null) {
                 adapter.users = list
             }
-        }*/
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,8 +69,8 @@ class FavoriteActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-//    override fun onSaveInstanceState(outState: Bundle) {
-//        super.onSaveInstanceState(outState)
-//        outState.putParcelableArrayList(EXTRA_STATE, adapter.users)
-//    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(EXTRA_STATE, adapter.users)
+    }
 }
