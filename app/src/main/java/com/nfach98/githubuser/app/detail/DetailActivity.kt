@@ -1,30 +1,37 @@
 package com.nfach98.githubuser.app.detail
 
-import android.content.ContentValues
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.R
+import com.nfach98.githubuser.app.favorite.FavoriteViewModel
+import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
-import com.nfach98.githubuser.db.DatabaseContract
-import com.nfach98.githubuser.db.UserHelper
+import com.nfach98.githubuser.db.UserApplication
 import com.nfach98.githubuser.model.Item
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
-    private lateinit var viewModel: DetailViewModel
     private lateinit var user: Item
     private lateinit var userDetail: UserDetail
 
-    private lateinit var userHelper: UserHelper
+    private lateinit var viewModel: DetailViewModel
+    private val favoriteViewModel: FavoriteViewModel by viewModels {
+        FavoriteViewModelFactory((application as UserApplication).repository)
+    }
 
     companion object {
         private val TAB_TITLES = intArrayOf(
@@ -52,8 +59,6 @@ class DetailActivity : AppCompatActivity() {
     private fun setupData() {
         user = intent.getParcelableExtra<Item>(MainActivity.EXTRA_USER) as Item
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
-
-        userHelper = UserHelper.getInstance(applicationContext)
     }
 
     private fun setupView(){
@@ -61,40 +66,14 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnFavorite.setOnClickListener {
-            userHelper.open()
-
-            val values = ContentValues()
-            values.put(DatabaseContract.UserColumns._ID, userDetail.id)
-            values.put(DatabaseContract.UserColumns.AVATAR, userDetail.avatarUrl)
-            values.put(DatabaseContract.UserColumns.BIO, userDetail.bio)
-            values.put(DatabaseContract.UserColumns.BLOG, userDetail.blog)
-            values.put(DatabaseContract.UserColumns.COMPANY, userDetail.company)
-            values.put(DatabaseContract.UserColumns.CREATED_AT, userDetail.createdAt)
-            values.put(DatabaseContract.UserColumns.EMAIL, userDetail.email)
-            values.put(DatabaseContract.UserColumns.EVENTS_URL, userDetail.eventsUrl)
-            values.put(DatabaseContract.UserColumns.FOLLOWERS, userDetail.followers)
-            values.put(DatabaseContract.UserColumns.FOLLOWING, userDetail.following)
-            values.put(DatabaseContract.UserColumns.HIREABLE, if(userDetail.hireable) 1 else 0)
-            values.put(DatabaseContract.UserColumns.HTML_URL, userDetail.htmlUrl)
-            values.put(DatabaseContract.UserColumns.LOCATION, userDetail.location)
-            values.put(DatabaseContract.UserColumns.LOGIN, userDetail.login)
-            values.put(DatabaseContract.UserColumns.NAME, userDetail.name)
-            values.put(DatabaseContract.UserColumns.NODE_ID, userDetail.nodeId)
-            values.put(DatabaseContract.UserColumns.ORGANIZATION_URL, userDetail.organizationsUrl)
-            values.put(DatabaseContract.UserColumns.REPOS_URL, userDetail.reposUrl)
-            values.put(DatabaseContract.UserColumns.SITE_ADMIN, if(userDetail.siteAdmin) 1 else 0)
-            values.put(DatabaseContract.UserColumns.TWITTER_USERNAME, userDetail.twitterUsername)
-            values.put(DatabaseContract.UserColumns.TYPE, userDetail.type)
-            values.put(DatabaseContract.UserColumns.UPDATED_AT, userDetail.updatedAt)
-            values.put(DatabaseContract.UserColumns.URL, userDetail.url)
-
-            val result = userHelper.insert(values)
-            if (result > 0) {
-                Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
+            GlobalScope.launch {
+                favoriteViewModel.insert(userDetail)
+                /*if (insert.isCompleted) {
+                    Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
+                }*/
             }
-
         }
     }
 
