@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_detail.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_detail.xml"
+    },
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_favorite.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_favorite.xml"
+    },
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_detail_follow.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\fragment_detail_follow.xml"
+    },
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_splash.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_user.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\item_user.xml"
+    }
+]
