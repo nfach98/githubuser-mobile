@@ -11,21 +11,14 @@ import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityFavoriteBinding
-import com.nfach98.githubuser.db.AppDatabase.Companion.CONTENT_URI
-import com.nfach98.githubuser.db.MappingHelper
-import com.nfach98.githubuser.db.UserApplication
 import com.nfach98.githubuser.model.UserDetail
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 
 class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var adapter: FavoriteAdapter
     private lateinit var binding: ActivityFavoriteBinding
     private val viewModel: FavoriteViewModel by viewModels {
-        FavoriteViewModelFactory((application as UserApplication).repository)
+        FavoriteViewModelFactory(contentResolver)
     }
 
     companion object {
@@ -80,17 +73,23 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun loadNotesAsync() {
-        GlobalScope.launch(Dispatchers.Main) {
+        /*GlobalScope.launch(Dispatchers.IO) {
+
+
             val deferredUsers = async(Dispatchers.IO) {
                 val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
             val users = deferredUsers.await()
+
+        }*/
+
+        viewModel.getUsers().observe(this@FavoriteActivity, {
             binding.rvUsers.visibility = View.VISIBLE
             binding.loading.visibility = View.INVISIBLE
 
-            if (users.size > 0) {
-                adapter.users = users
+            if (it.size > 0) {
+                adapter.users = it
                 adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: UserDetail) {
                         val intent = Intent(this@FavoriteActivity, DetailActivity::class.java)
@@ -101,6 +100,6 @@ class FavoriteActivity : AppCompatActivity() {
             } else {
                 adapter.users = ArrayList()
             }
-        }
+        })
     }
 }
