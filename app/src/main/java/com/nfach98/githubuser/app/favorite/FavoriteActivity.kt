@@ -1,20 +1,24 @@
 package com.nfach98.githubuser.app.favorite
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.app.main.MainActivity
-import com.nfach98.githubuser.app.main.MainAdapter
 import com.nfach98.githubuser.databinding.ActivityFavoriteBinding
+import com.nfach98.githubuser.db.AppDatabase.Companion.CONTENT_URI
+import com.nfach98.githubuser.db.MappingHelper
 import com.nfach98.githubuser.db.UserApplication
-import com.nfach98.githubuser.model.Item
 import com.nfach98.githubuser.model.UserDetail
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -42,7 +46,8 @@ class FavoriteActivity : AppCompatActivity() {
         binding.rvUsers.setHasFixedSize(true)
 
         if (savedInstanceState == null) {
-            viewModel.users.observe(this, {
+            loadNotesAsync()
+            /*viewModel.users.observe(this, {
                 it.let {
                     adapter.users = it as ArrayList<UserDetail>
                     adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
@@ -55,7 +60,7 @@ class FavoriteActivity : AppCompatActivity() {
                     binding.loading.visibility = View.GONE
                     binding.rvUsers.visibility = View.VISIBLE
                 }
-            })
+            })*/
         } else {
             val list = savedInstanceState.getParcelableArrayList<UserDetail>(EXTRA_STATE)
             if (list != null) {
@@ -72,5 +77,30 @@ class FavoriteActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelableArrayList(EXTRA_STATE, adapter.users)
+    }
+
+    private fun loadNotesAsync() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val deferredUsers = async(Dispatchers.IO) {
+                val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
+                MappingHelper.mapCursorToArrayList(cursor)
+            }
+            val users = deferredUsers.await()
+            binding.rvUsers.visibility = View.VISIBLE
+            binding.loading.visibility = View.INVISIBLE
+
+            if (users.size > 0) {
+                adapter.users = users
+                adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
+                    override fun onItemClicked(data: UserDetail) {
+                        val intent = Intent(this@FavoriteActivity, DetailActivity::class.java)
+                        intent.putExtra(MainActivity.EXTRA_USER, data.login)
+                        startActivity(intent)
+                    }
+                })
+            } else {
+                adapter.users = ArrayList()
+            }
+        }
     }
 }
