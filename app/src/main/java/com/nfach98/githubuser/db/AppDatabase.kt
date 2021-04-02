@@ -38,7 +38,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         val CONTENT_URI: Uri = Uri.Builder().scheme(SCHEME)
             .authority(AUTHORITY)
-            .appendPath("users")
+            .appendPath(TABLE_NAME)
             .build()
     }
 

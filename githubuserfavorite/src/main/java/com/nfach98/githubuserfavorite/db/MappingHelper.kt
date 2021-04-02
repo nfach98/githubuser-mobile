@@ -11,7 +11,7 @@ object MappingHelper {
         usersCursor?.apply {
             while (moveToNext()) {
                 val id = getInt(getColumnIndexOrThrow("id"))
-                val avatar = getString(getColumnIndexOrThrow("avatar"))
+                val avatar = getString(getColumnIndexOrThrow("avatar_url"))
                 val bio = getString(getColumnIndexOrThrow("bio"))
                 val blog = getString(getColumnIndexOrThrow("blog"))
                 val company = getString(getColumnIndexOrThrow("company"))
@@ -33,7 +33,7 @@ object MappingHelper {
                 val name = getString(getColumnIndexOrThrow("name"))
                 val nodeId = getString(getColumnIndexOrThrow("node_id"))
                 val organizationUrl =
-                    getString(getColumnIndexOrThrow("organization_url"))
+                    getString(getColumnIndexOrThrow("organizations_url"))
                 val reposUrl =
                     getString(getColumnIndexOrThrow("repos_url"))
                 val siteAdmin =
