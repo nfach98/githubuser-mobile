@@ -1,10 +1,13 @@
 package com.nfach98.githubuser.app.detail
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.R
@@ -12,8 +15,11 @@ import com.nfach98.githubuser.app.favorite.FavoriteViewModel
 import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
+import com.nfach98.githubuser.db.UserApplication
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DetailActivity : AppCompatActivity() {
 
@@ -23,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var viewModel: DetailViewModel
     private val favoriteViewModel: FavoriteViewModel by viewModels {
-        FavoriteViewModelFactory(contentResolver)
+        FavoriteViewModelFactory(contentResolver, (application as UserApplication).repository)
     }
 
     companion object {
@@ -51,12 +57,12 @@ class DetailActivity : AppCompatActivity() {
         username = intent.getStringExtra(MainActivity.EXTRA_USER).toString()
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
-        /*GlobalScope.launch {
+        GlobalScope.launch {
             val userOnDb = favoriteViewModel.getByUsername(username)
             if(userOnDb != null) {
                 binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
             }
-        }*/
+        }
         load(username)
     }
 
@@ -64,16 +70,16 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title = username
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        /*binding.btnFavorite.setOnClickListener {
+        binding.btnFavorite.setOnClickListener {
             GlobalScope.launch {
-                favoriteViewModel.insert(userDetail)
-                *//*if (insert.isCompleted) {
+                val insert = favoriteViewModel.insert(userDetail)
+                if (insert.isCompleted) {
                     Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
-                }*//*
+                }
             }
-        }*/
+        }
     }
 
     private fun load(username: String) {

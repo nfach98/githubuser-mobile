@@ -1,6 +1,7 @@
 package com.nfach98.githubuser.model
 
 
+import android.content.ContentValues
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -138,4 +139,109 @@ data class UserDetail(
     @ColumnInfo(name = "url")
     @SerializedName("url")
     var url: String? = null
-) : Parcelable
+) : Parcelable {
+
+    companion object {
+        fun fromContentValues(contentValues: ContentValues) : UserDetail{
+            val userDetail = UserDetail()
+            if (contentValues.containsKey("avatar_url")) {
+                userDetail.avatarUrl = contentValues.getAsString("avatar_url")
+            }
+            if (contentValues.containsKey("bio")) {
+                userDetail.bio = contentValues.getAsString("bio")
+            }
+            if (contentValues.containsKey("blog")) {
+                userDetail.blog = contentValues.getAsString("blog")
+            }
+            if (contentValues.containsKey("company")) {
+                userDetail.company = contentValues.getAsString("company")
+            }
+            if (contentValues.containsKey("created_at")) {
+                userDetail.createdAt = contentValues.getAsString("created_at")
+            }
+            if (contentValues.containsKey("email")) {
+                userDetail.email = contentValues.getAsString("email")
+            }
+            if (contentValues.containsKey("events_url")) {
+                userDetail.eventsUrl = contentValues.getAsString("events_url")
+            }
+            if (contentValues.containsKey("followers")) {
+                userDetail.followers = contentValues.getAsInteger("followers")
+            }
+            if (contentValues.containsKey("followers_url")) {
+                userDetail.followersUrl = contentValues.getAsString("followers_url")
+            }
+            if (contentValues.containsKey("following")) {
+                userDetail.following = contentValues.getAsInteger("following")
+            }
+            if (contentValues.containsKey("following_url")) {
+                userDetail.followingUrl = contentValues.getAsString("following_url")
+            }
+            if (contentValues.containsKey("gists_url")) {
+                userDetail.gistsUrl = contentValues.getAsString("gists_url")
+            }
+            if (contentValues.containsKey("gravatar_id")) {
+                userDetail.gravatarId = contentValues.getAsString("gravatar_id")
+            }
+            if (contentValues.containsKey("hireable")) {
+                userDetail.hireable = contentValues.getAsInteger("hireable") == 1
+            }
+            if (contentValues.containsKey("html_url")) {
+                userDetail.htmlUrl = contentValues.getAsString("html_url")
+            }
+            if (contentValues.containsKey("id")) {
+                userDetail.id = contentValues.getAsInteger("id")
+            }
+            if (contentValues.containsKey("location")) {
+                userDetail.location = contentValues.getAsString("location")
+            }
+            if (contentValues.containsKey("login")) {
+                userDetail.login = contentValues.getAsString("login")
+            }
+            if (contentValues.containsKey("name")) {
+                userDetail.name = contentValues.getAsString("name")
+            }
+            if (contentValues.containsKey("node_id")) {
+                userDetail.nodeId = contentValues.getAsString("node_id")
+            }
+            if (contentValues.containsKey("organizations_url")) {
+                userDetail.organizationsUrl = contentValues.getAsString("organizations_url")
+            }
+            if (contentValues.containsKey("public_gists")) {
+                userDetail.publicGists = contentValues.getAsInteger("public_gists")
+            }
+            if (contentValues.containsKey("public_repos")) {
+                userDetail.publicRepos = contentValues.getAsInteger("public_repos")
+            }
+            if (contentValues.containsKey("received_events_url")) {
+                userDetail.receivedEventsUrl = contentValues.getAsString("received_events_url")
+            }
+            if (contentValues.containsKey("repos_url")) {
+                userDetail.reposUrl = contentValues.getAsString("repos_url")
+            }
+            if (contentValues.containsKey("site_admin")) {
+                userDetail.siteAdmin = contentValues.getAsInteger("site_admin") == 1
+            }
+            if (contentValues.containsKey("starred_url")) {
+                userDetail.starredUrl = contentValues.getAsString("starred_url")
+            }
+            if (contentValues.containsKey("subscriptions_url")) {
+                userDetail.subscriptionsUrl = contentValues.getAsString("subscriptions_url")
+            }
+            if (contentValues.containsKey("twitter_username")) {
+                userDetail.twitterUsername = contentValues.getAsString("twitter_username")
+            }
+            if (contentValues.containsKey("type")) {
+                userDetail.type = contentValues.getAsString("type")
+            }
+            if (contentValues.containsKey("updated_at")) {
+                userDetail.updatedAt = contentValues.getAsString("updated_at")
+            }
+            if (contentValues.containsKey("url")) {
+                userDetail.url = contentValues.getAsString("url")
+            }
+
+            return userDetail
+        }
+    }
+}

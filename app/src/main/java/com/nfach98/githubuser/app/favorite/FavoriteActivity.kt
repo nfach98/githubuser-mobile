@@ -11,6 +11,7 @@ import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityFavoriteBinding
+import com.nfach98.githubuser.db.UserApplication
 import com.nfach98.githubuser.model.UserDetail
 
 class FavoriteActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class FavoriteActivity : AppCompatActivity() {
     private lateinit var adapter: FavoriteAdapter
     private lateinit var binding: ActivityFavoriteBinding
     private val viewModel: FavoriteViewModel by viewModels {
-        FavoriteViewModelFactory(contentResolver)
+        FavoriteViewModelFactory(contentResolver, (application as UserApplication).repository)
     }
 
     companion object {
@@ -73,17 +74,6 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun loadNotesAsync() {
-        /*GlobalScope.launch(Dispatchers.IO) {
-
-
-            val deferredUsers = async(Dispatchers.IO) {
-                val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
-                MappingHelper.mapCursorToArrayList(cursor)
-            }
-            val users = deferredUsers.await()
-
-        }*/
-
         viewModel.getUsers().observe(this@FavoriteActivity, {
             binding.rvUsers.visibility = View.VISIBLE
             binding.loading.visibility = View.INVISIBLE

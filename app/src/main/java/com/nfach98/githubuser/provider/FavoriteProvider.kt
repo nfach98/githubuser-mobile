@@ -41,7 +41,7 @@ class FavoriteProvider : ContentProvider() {
 
         when (sUriMatcher.match(uri)) {
             FAV -> {
-                cursor = userDao?.getAllCursor()
+                cursor = userDao?.getAll()
                 cursor?.setNotificationUri(context?.contentResolver, uri)
             }
             FAV_USERNAME -> {
