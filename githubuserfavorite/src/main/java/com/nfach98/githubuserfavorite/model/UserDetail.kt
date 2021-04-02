@@ -1,4 +1,4 @@
-package com.nfach98.githubuser.model
+package com.nfach98.githubuserfavorite.model
 
 
 import android.os.Parcelable

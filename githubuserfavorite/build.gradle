@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.nfach98.githubuser"
+        applicationId "com.nfach98.githubuserfavoritefavorite"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -64,4 +65,6 @@ dependencies {
     implementation "com.squareup.picasso:picasso:2.71828"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
 }
