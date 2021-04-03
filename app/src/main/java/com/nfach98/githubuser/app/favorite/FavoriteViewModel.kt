@@ -34,6 +34,10 @@ class FavoriteViewModel(private val contentResolver: ContentResolver, private va
         repository.insert(user)
     }
 
+    fun delete(user: UserDetail) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(user)
+    }
+
     fun getByUsername(username: String): UserDetail?{
         return repository.getByUsername(username)
     }

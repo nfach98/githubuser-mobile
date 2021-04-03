@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.favorite.FavoriteViewModel
@@ -18,8 +19,9 @@ import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.db.UserApplication
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
@@ -31,6 +33,8 @@ class DetailActivity : AppCompatActivity() {
     private val favoriteViewModel: FavoriteViewModel by viewModels {
         FavoriteViewModelFactory(contentResolver, (application as UserApplication).repository)
     }
+
+    private var isUserOnDb = false
 
     companion object {
         private val TAB_TITLES = intArrayOf(
@@ -57,9 +61,9 @@ class DetailActivity : AppCompatActivity() {
         username = intent.getStringExtra(MainActivity.EXTRA_USER).toString()
         viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
-        GlobalScope.launch {
-            val userOnDb = favoriteViewModel.getByUsername(username)
-            if(userOnDb != null) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            isUserOnDb = favoriteViewModel.getByUsername(username) != null
+            if(isUserOnDb) {
                 binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
             }
         }
@@ -71,12 +75,32 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnFavorite.setOnClickListener {
-            GlobalScope.launch {
-                val insert = favoriteViewModel.insert(userDetail)
-                if (insert.isCompleted) {
-                    Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
+            if(isUserOnDb){
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val delete = favoriteViewModel.delete(userDetail)
+                    delete.join()
+                    withContext(Dispatchers.Main){
+                        if (delete.isCompleted) {
+                            Toast.makeText(this@DetailActivity, "Berhasil menghapus data", Toast.LENGTH_SHORT).show()
+                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_link))
+                        } else {
+                            Toast.makeText(this@DetailActivity, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+            else{
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val insert = favoriteViewModel.insert(userDetail)
+                    insert.join()
+                    withContext(Dispatchers.Main){
+                        if (insert.isCompleted) {
+                            Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
+                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
+                        } else {
+                            Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
         }

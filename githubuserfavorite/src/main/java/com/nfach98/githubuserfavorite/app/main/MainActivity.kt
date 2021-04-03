@@ -34,6 +34,28 @@ class MainActivity : AppCompatActivity() {
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.setHasFixedSize(true)
 
+        /*val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                noteViewModel.delete(noteAdapter.getNoteAt(viewHolder.adapterPosition))
+                Toast.makeText(
+                    this@MainActivity,
+                    getString(R.string.note_deleted),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+        })
+        itemTouchHelper.attachToRecyclerView(binding.rvUsers)*/
+
         if (savedInstanceState == null) {
             loadNotesAsync()
         } else {
