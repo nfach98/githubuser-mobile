@@ -41,26 +41,17 @@ class FavoriteActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             loadNotesAsync()
-            /*viewModel.users.observe(this, {
-                it.let {
-                    adapter.users = it as ArrayList<UserDetail>
-                    adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
-                        override fun onItemClicked(data: UserDetail) {
-                            val intent = Intent(this@FavoriteActivity, DetailActivity::class.java)
-                            intent.putExtra(MainActivity.EXTRA_USER, data.login)
-                            startActivity(intent)
-                        }
-                    })
-                    binding.loading.visibility = View.GONE
-                    binding.rvUsers.visibility = View.VISIBLE
-                }
-            })*/
         } else {
             val list = savedInstanceState.getParcelableArrayList<UserDetail>(EXTRA_STATE)
             if (list != null) {
                 adapter.users = list
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadNotesAsync()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,10 +65,10 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun loadNotesAsync() {
-        viewModel.getUsers().observe(this@FavoriteActivity, {
-            binding.rvUsers.visibility = View.VISIBLE
-            binding.loading.visibility = View.INVISIBLE
+        binding.rvUsers.visibility = View.INVISIBLE
+        binding.loading.visibility = View.VISIBLE
 
+        viewModel.getUsers().observe(this@FavoriteActivity, {
             if (it.size > 0) {
                 adapter.users = it
                 adapter.setOnItemClickCallback(object : FavoriteAdapter.OnItemActionCallback {
@@ -90,6 +81,9 @@ class FavoriteActivity : AppCompatActivity() {
             } else {
                 adapter.users = ArrayList()
             }
+
+            binding.rvUsers.visibility = View.VISIBLE
+            binding.loading.visibility = View.GONE
         })
     }
 }

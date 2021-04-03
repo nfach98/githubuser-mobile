@@ -81,8 +81,9 @@ class DetailActivity : AppCompatActivity() {
                     delete.join()
                     withContext(Dispatchers.Main){
                         if (delete.isCompleted) {
-                            Toast.makeText(this@DetailActivity, "Berhasil menghapus data", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@DetailActivity, "${userDetail.login} berhasil dihapus dari favorit", Toast.LENGTH_SHORT).show()
                             binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_link))
+                            isUserOnDb = false
                         } else {
                             Toast.makeText(this@DetailActivity, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
                         }
@@ -97,6 +98,7 @@ class DetailActivity : AppCompatActivity() {
                         if (insert.isCompleted) {
                             Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
                             binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
+                            isUserOnDb = true
                         } else {
                             Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
                         }
