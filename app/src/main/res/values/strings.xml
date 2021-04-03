@@ -7,6 +7,9 @@
     <string name="following">Following</string>
     <string name="follower">Follower</string>
 
+    <string name="appwidget_text" translatable="false">STAR WARS BANNER</string>
+    <string name="empty_text" translatable="false">NO DATA</string>
+
     <string-array name="username">
         <item>JakeWharton</item>
         <item>amitshekhariitbhu</item>

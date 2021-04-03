@@ -7,4 +7,8 @@
     <color name="github_action_positive">#2C974B</color>
     <color name="github_action_negative">#CB2431</color>
     <color name="github_link">#2B87DD</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 </resources>
