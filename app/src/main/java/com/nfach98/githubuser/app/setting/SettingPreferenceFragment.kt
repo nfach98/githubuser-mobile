@@ -47,7 +47,13 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
 
             if(isAlarmSet){
                 context?.let {
-                    alarmReceiver.setAlarm(it, AlarmReceiver.TYPE_REPEATING, "20:20", "Halo")
+                    if(isAlarmSet) alarmReceiver.setAlarm(
+                        it,
+                        resources.getString(R.string.app_name),
+                        "09:00",
+                        resources.getString(R.string.reminder_message)
+                    )
+                    else alarmReceiver.cancelAlarm(it)
                 }
             }
         }

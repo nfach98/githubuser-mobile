@@ -9,8 +9,9 @@
 
     <string name="language">Language</string>
     <string name="reminder">Reminder</string>
-
     <string name="reminder_summary">Daily at 9 am</string>
+    <string name="reminder_message">Let\'s find popular user on Github</string>
+    <string name="reminder_set_up">Reminder is set up daily at 9 am</string>
 
     <string name="empty_text">NO DATA</string>
 

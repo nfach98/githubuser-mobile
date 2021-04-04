@@ -12,43 +12,32 @@ import android.os.Build
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import com.nfach98.githubuser.app.main.MainActivity
 import java.util.*
 
 class AlarmReceiver : BroadcastReceiver() {
 
     companion object {
-        const val TYPE_ONE_TIME = "OneTimeAlarm"
-        const val TYPE_REPEATING = "RepeatingAlarm"
         const val EXTRA_MESSAGE = "message"
-        const val EXTRA_TYPE = "type"
+        const val EXTRA_TITLE = "type"
 
-        private const val ID_ONETIME = 100
         private const val ID_REPEATING = 101
     }
 
     override fun onReceive(context: Context, intent: Intent) {
-        val type = intent.getStringExtra(EXTRA_TYPE)
+        val title = intent.getStringExtra(EXTRA_TITLE)
         val message = intent.getStringExtra(EXTRA_MESSAGE)
 
-        val title = if (type.equals(TYPE_ONE_TIME, ignoreCase = true)) TYPE_ONE_TIME else TYPE_REPEATING
-        val notifId = if (type.equals(TYPE_ONE_TIME, ignoreCase = true)) ID_ONETIME else ID_REPEATING
-
-        showToast(context, title, message)
-
-        if (message != null) {
-            showAlarmNotification(context, title, message, notifId)
+        if (title != null && message != null) {
+            showAlarmNotification(context, title, message)
         }
     }
 
-    private fun showToast(context: Context, title: String, message: String?) {
-        Toast.makeText(context, "$title : $message", Toast.LENGTH_LONG).show()
-    }
-
-    fun setAlarm(context: Context, type: String, time: String, message: String){
+    fun setAlarm(context: Context, title: String, time: String, message: String){
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
         intent.putExtra(EXTRA_MESSAGE, message)
-        val putExtra = intent.putExtra(EXTRA_TYPE, type)
+        intent.putExtra(EXTRA_TITLE, title)
 
         val timeArray = time.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
@@ -60,32 +49,51 @@ class AlarmReceiver : BroadcastReceiver() {
         val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
 
-        Toast.makeText(context, "Repeating alarm set up", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.resources.getString(R.string.reminder_set_up), Toast.LENGTH_SHORT).show()
     }
 
-    private fun showAlarmNotification(context: Context, title: String, message: String, notifId: Int) {
+    fun cancelAlarm(context: Context){
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, AlarmReceiver::class.java)
+        val requestCode = ID_REPEATING
+        val pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0)
+        pendingIntent.cancel()
+
+        alarmManager.cancel(pendingIntent)
+
+        Toast.makeText(context, "Repeating alarm is cancelled", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showAlarmNotification(context: Context, title: String, message: String) {
         val channelId = "Channel_1"
         val channelName = "AlarmManager channel"
         val notificationManagerCompat = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        val intent = Intent(context, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+
         val builder = NotificationCompat.Builder(context, channelId)
+            .setContentIntent(pendingIntent)
             .setSmallIcon(R.drawable.ic_github_mark)
             .setContentTitle(title)
             .setContentText(message)
             .setColor(ContextCompat.getColor(context, android.R.color.transparent))
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
+            .setAutoCancel(true)
             .setSound(alarmSound)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(channelId,
                 channelName,
-                NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationManager.IMPORTANCE_HIGH)
             channel.enableVibration(true)
             channel.vibrationPattern = longArrayOf(1000, 1000, 1000, 1000, 1000)
             builder.setChannelId(channelId)
             notificationManagerCompat.createNotificationChannel(channel)
         }
+
         val notification = builder.build()
-        notificationManagerCompat.notify(notifId, notification)
+        notificationManagerCompat.notify(ID_REPEATING, notification)
     }
 }

@@ -11,4 +11,6 @@
     <string name="language">Bahasa</string>
     <string name="reminder">Pengingat</string>
     <string name="reminder_summary">Setiap hari pukul 09.00</string>
+    <string name="reminder_message">Ayo cari pengguna populer di Github</string>
+    <string name="reminder_set_up">Pengingat diaktifkan untuk setiap hari pukul 09.00</string>
 </resources>
