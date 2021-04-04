@@ -7,6 +7,7 @@ import android.provider.Settings
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
+import com.nfach98.githubuser.AlarmReceiver
 import com.nfach98.githubuser.R
 import java.util.*
 
@@ -19,6 +20,8 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
 
     private lateinit var reminderPreference: SwitchPreference
     private lateinit var languagePreference: Preference
+
+    private lateinit var alarmReceiver: AlarmReceiver
 
     override fun onCreatePreferences(bundle: Bundle?, s: String?) {
         addPreferencesFromResource(R.xml.preferences)
@@ -38,7 +41,17 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         if (key == REMINDER) {
-            reminderPreference.isChecked = sharedPreferences.getBoolean(REMINDER, false)
+            val isAlarmSet = sharedPreferences.getBoolean(REMINDER, false)
+
+            reminderPreference.isChecked = isAlarmSet
+
+            if(isAlarmSet){
+                context?.let {
+                    alarmReceiver.setOneTimeAlarm(
+                        it, AlarmReceiver.TYPE_ONE_TIME,
+                        "Halo")
+                }
+            }
         }
         if (key == LANG) {
             languagePreference.summary = Locale.getDefault().displayLanguage
@@ -62,5 +75,7 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
         val sh = preferenceManager.sharedPreferences
         reminderPreference.isChecked = sh.getBoolean(REMINDER, false)
         languagePreference.summary = Locale.getDefault().displayLanguage
+
+        alarmReceiver = AlarmReceiver()
     }
 }
