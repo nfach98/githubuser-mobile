@@ -8,7 +8,9 @@
     <string name="follower">Follower</string>
 
     <string name="language">Language</string>
-    <string name="turn_on_reminder">Turn on reminder</string>
+    <string name="reminder">Reminder</string>
+
+    <string name="reminder_summary">Daily at 9 am</string>
 
     <string name="empty_text">NO DATA</string>
 

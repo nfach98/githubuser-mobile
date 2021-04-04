@@ -9,5 +9,6 @@
     <string name="favorite">Favorit</string>
     <string name="empty_text">TIDAK ADA DATA</string>
     <string name="language">Bahasa</string>
-    <string name="turn_on_reminder">Nyalakan pengingat</string>
+    <string name="reminder">Pengingat</string>
+    <string name="reminder_summary">Setiap hari pukul 09.00</string>
 </resources>

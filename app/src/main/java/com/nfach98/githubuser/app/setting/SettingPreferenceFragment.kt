@@ -4,9 +4,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
-import androidx.preference.CheckBoxPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import com.nfach98.githubuser.R
 import java.util.*
 
@@ -17,7 +17,7 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
     private lateinit var REMINDER: String
     private lateinit var LANG: String
 
-    private lateinit var reminderPreference: CheckBoxPreference
+    private lateinit var reminderPreference: SwitchPreference
     private lateinit var languagePreference: Preference
 
     override fun onCreatePreferences(bundle: Bundle?, s: String?) {
@@ -49,7 +49,7 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
         REMINDER = resources.getString(R.string.key_reminder)
         LANG = resources.getString(R.string.key_lang)
 
-        reminderPreference = findPreference<CheckBoxPreference>(REMINDER) as CheckBoxPreference
+        reminderPreference = findPreference<SwitchPreference>(REMINDER) as SwitchPreference
         languagePreference = findPreference<Preference>(LANG) as Preference
 
         languagePreference.setOnPreferenceClickListener {
