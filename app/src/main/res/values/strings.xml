@@ -7,8 +7,13 @@
     <string name="following">Following</string>
     <string name="follower">Follower</string>
 
-    <string name="appwidget_text" translatable="false">STAR WARS BANNER</string>
-    <string name="empty_text" translatable="false">NO DATA</string>
+    <string name="language">Language</string>
+    <string name="turn_on_reminder">Turn on reminder</string>
+
+    <string name="empty_text">NO DATA</string>
+
+    <string name="key_reminder" translatable="false">reminder</string>
+    <string name="key_lang" translatable="false">lang</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

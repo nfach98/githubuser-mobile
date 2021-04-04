@@ -31,10 +31,11 @@ internal class StackRemoteViewsFactory(private val mContext: Context) : RemoteVi
     override fun getCount(): Int = mWidgetItems.size
 
     override fun getViewAt(position: Int): RemoteViews {
-        val rv = RemoteViews(mContext.packageName, R.layout.widget_item)
+        val rv = RemoteViews(mContext.packageName, R.layout.item_widget)
+
         rv.setImageViewBitmap(R.id.imageView, mWidgetItems[position])
         val extras = bundleOf(
-            ImageBannerWidget.EXTRA_ITEM to position
+            FavoriteWidget.EXTRA_ITEM to position
         )
         val fillInIntent = Intent()
         fillInIntent.putExtras(extras)

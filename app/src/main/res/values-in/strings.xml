@@ -7,4 +7,7 @@
     <string name="following">Mengikuti</string>
     <string name="follower">Pengikut</string>
     <string name="favorite">Favorit</string>
+    <string name="empty_text">TIDAK ADA DATA</string>
+    <string name="language">Bahasa</string>
+    <string name="turn_on_reminder">Nyalakan pengingat</string>
 </resources>

@@ -19,15 +19,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUser">
+        <activity android:name=".app.setting.SettingActivity"></activity>
 
-        <receiver android:name=".ImageBannerWidget">
+        <receiver android:name=".FavoriteWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/image_banner_widget_info" />
+                android:resource="@xml/favorite_widget_info" />
         </receiver>
 
         <service

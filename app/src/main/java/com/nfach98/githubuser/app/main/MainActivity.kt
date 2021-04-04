@@ -4,7 +4,6 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.app.favorite.FavoriteActivity
+import com.nfach98.githubuser.app.setting.SettingActivity
 import com.nfach98.githubuser.databinding.ActivityMainBinding
 import com.nfach98.githubuser.model.Item
 
@@ -102,7 +102,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_setting) {
-            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+//            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            startActivity(Intent(this@MainActivity, SettingActivity::class.java))
         }
 
         else if (item.itemId == R.id.menu_favorite) {
