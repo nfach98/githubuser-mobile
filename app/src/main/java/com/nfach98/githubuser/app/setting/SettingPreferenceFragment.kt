@@ -47,9 +47,7 @@ class SettingPreferenceFragment : PreferenceFragmentCompat(),
 
             if(isAlarmSet){
                 context?.let {
-                    alarmReceiver.setOneTimeAlarm(
-                        it, AlarmReceiver.TYPE_ONE_TIME,
-                        "Halo")
+                    alarmReceiver.setAlarm(it, AlarmReceiver.TYPE_REPEATING, "20:20", "Halo")
                 }
             }
         }

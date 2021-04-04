@@ -44,24 +44,23 @@ class AlarmReceiver : BroadcastReceiver() {
         Toast.makeText(context, "$title : $message", Toast.LENGTH_LONG).show()
     }
 
-    fun setOneTimeAlarm(context: Context, type: String, message: String) {
+    fun setAlarm(context: Context, type: String, time: String, message: String){
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
-
         intent.putExtra(EXTRA_MESSAGE, message)
-        intent.putExtra(EXTRA_TYPE, type)
+        val putExtra = intent.putExtra(EXTRA_TYPE, type)
+
+        val timeArray = time.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
         val calendar = Calendar.getInstance()
-
-        calendar.set(Calendar.YEAR, 2021)
-        calendar.set(Calendar.MONTH, 3)
-        calendar.set(Calendar.DAY_OF_MONTH, 4)
-        calendar.set(Calendar.HOUR_OF_DAY, 20)
-        calendar.set(Calendar.MINUTE, 10)
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]))
+        calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]))
         calendar.set(Calendar.SECOND, 0)
 
-        val pendingIntent = PendingIntent.getBroadcast(context, ID_ONETIME, intent, 0)
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+        val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
+
+        Toast.makeText(context, "Repeating alarm set up", Toast.LENGTH_SHORT).show()
     }
 
     private fun showAlarmNotification(context: Context, title: String, message: String, notifId: Int) {
@@ -76,6 +75,7 @@ class AlarmReceiver : BroadcastReceiver() {
             .setColor(ContextCompat.getColor(context, android.R.color.transparent))
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setSound(alarmSound)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(channelId,
                 channelName,
