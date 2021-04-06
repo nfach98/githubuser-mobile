@@ -20,10 +20,31 @@
                 motion:motionTarget="@+id/iv_avatar" />
 
             <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/tv_username" />
+
+            <KeyAttribute
+                android:alpha="1.0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/tv_bio" />
+
+            <KeyAttribute
                 android:alpha="0.0"
                 motion:framePosition="100"
                 motion:motionTarget="@+id/iv_avatar" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/tv_username" />
+
+            <KeyAttribute
+                android:alpha="0.0"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/tv_bio" />
         </KeyFrameSet>
+
         <OnSwipe app:touchAnchorId="@+id/scroll_view" />
     </Transition>
 
@@ -64,13 +85,6 @@
                 app:customFloatValue="1" />
         </Constraint>
 
-        <!--<Constraint
-            android:id="@id/iv_curve"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/scroll_view"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />-->
-
         <Constraint
             android:id="@id/iv_avatar"
             android:layout_marginTop="8dp"
@@ -78,10 +92,11 @@
             android:layout_marginStart="8dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="1.0"
-            app:layout_constraintTop_toTopOf="@id/collapse_toolbar"
-            motion:layout_constraintBottom_toBottomOf="@id/collapse_toolbar"
-            app:layout_constraintStart_toStartOf="@id/collapse_toolbar" />
+            motion:layout_constraintHeight_percent="0.1"
+            motion:layout_constraintDimensionRatio="1.0"
+            motion:layout_constraintTop_toTopOf="@id/collapse_toolbar"
+            motion:layout_constraintStart_toStartOf="@id/collapse_toolbar"
+            motion:layout_constraintEnd_toEndOf="@id/collapse_toolbar"/>
 
         <Constraint
             android:id="@id/tv_name"
@@ -97,6 +112,26 @@
                 motion:customDimension="6sp" />
 
         </Constraint>
+
+        <Constraint
+            android:id="@id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintEnd_toEndOf="@id/collapse_toolbar"
+            motion:layout_constraintStart_toStartOf="@id/collapse_toolbar"
+            motion:layout_constraintTop_toBottomOf="@id/tv_name"/>
+
+        <Constraint
+            android:id="@id/tv_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            motion:layout_constraintBottom_toBottomOf="@id/collapse_toolbar"
+            motion:layout_constraintEnd_toEndOf="@id/collapse_toolbar"
+            motion:layout_constraintStart_toStartOf="@id/collapse_toolbar"/>
     </ConstraintSet>
 
 

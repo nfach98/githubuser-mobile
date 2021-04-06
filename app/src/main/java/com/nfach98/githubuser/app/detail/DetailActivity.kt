@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.tabs.TabLayoutMediator
 import com.nfach98.githubuser.R
 import com.nfach98.githubuser.app.favorite.FavoriteViewModel
 import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
@@ -114,26 +115,25 @@ class DetailActivity : AppCompatActivity() {
                 userDetail = it
 
                 binding.loading.visibility = View.GONE
-//                binding.layoutDetail.visibility = View.VISIBLE
 
                 binding.tvName.text = it.name
-//                binding.tvUsername.text = it.login
-//                binding.tvBio.text = it.bio
+                binding.tvUsername.text = it.login
+                binding.tvBio.text = it.bio
 
                 if(it.name == null) binding.tvName.visibility = View.GONE
-//                if(it.bio == null) binding.tvBio.visibility = View.GONE
+                if(it.bio == null) binding.tvBio.visibility = View.GONE
 
                 Picasso.get().load(it.avatarUrl).into(binding.ivAvatar)
 
                 val pagerAdapter = DetailFollowPagerAdapter(this, username)
-//                binding.viewPager.adapter = pagerAdapter
+                binding.viewPager.adapter = pagerAdapter
 
-//                TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-//                    when(position){
-//                        0 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.followers})"
-//                        1 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.following})"
-//                    }
-//                }.attach()
+                TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+                    when(position){
+                        0 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.followers})"
+                        1 -> tab.text = "${resources.getString(TAB_TITLES[position])} (${it.following})"
+                    }
+                }.attach()
             }
         })
     }
