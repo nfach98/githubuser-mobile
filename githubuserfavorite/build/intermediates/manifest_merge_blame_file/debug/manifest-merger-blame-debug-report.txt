@@ -42,45 +42,44 @@
 25-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:13:9-54
 26        android:supportsRtl="true"
 26-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:14:9-35
-27        android:testOnly="true"
-28        android:theme="@style/Theme.GithubUser" >
-28-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:15:9-48
-29        <activity android:name="com.nfach98.githubuserfavorite.app.main.MainActivity" >
-29-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:16:9-17:20
-29-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:16:19-86
-30        </activity>
-31        <activity android:name="com.nfach98.githubuserfavorite.app.splash.SplashActivity" >
-31-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:18:9-23:20
-31-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:18:19-90
-32            <intent-filter>
-32-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:19:13-22:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:20:17-69
-33-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:20:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:21:17-77
-35-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:21:27-74
-36            </intent-filter>
-37        </activity>
-38
-39        <provider
-39-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
-40            android:name="com.squareup.picasso.PicassoProvider"
-40-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
-41            android:authorities="com.nfach98.githubuserfavoritefavorite.com.squareup.picasso"
-41-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
-42            android:exported="false" />
-42-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
-43
-44        <service
-44-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
-45            android:name="androidx.room.MultiInstanceInvalidationService"
-45-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
-46            android:directBootAware="true"
-46-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
-47            android:exported="false" />
-47-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
-48    </application>
-49
-50</manifest>
+27        android:theme="@style/Theme.GithubUser" >
+27-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:15:9-48
+28        <activity android:name="com.nfach98.githubuserfavorite.app.main.MainActivity" >
+28-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:16:9-17:20
+28-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:16:19-86
+29        </activity>
+30        <activity android:name="com.nfach98.githubuserfavorite.app.splash.SplashActivity" >
+30-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:18:9-23:20
+30-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:18:19-90
+31            <intent-filter>
+31-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:19:13-22:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:20:17-69
+32-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:20:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:21:17-77
+34-->D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:21:27-74
+35            </intent-filter>
+36        </activity>
+37
+38        <provider
+38-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+39            android:name="com.squareup.picasso.PicassoProvider"
+39-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+40            android:authorities="com.nfach98.githubuserfavoritefavorite.com.squareup.picasso"
+40-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+41            android:exported="false" />
+41-->[com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+42
+43        <service
+43-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:25:9-28:40
+44            android:name="androidx.room.MultiInstanceInvalidationService"
+44-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:26:13-74
+45            android:directBootAware="true"
+45-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:27:13-43
+46            android:exported="false" />
+46-->[androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:28:13-37
+47    </application>
+48
+49</manifest>

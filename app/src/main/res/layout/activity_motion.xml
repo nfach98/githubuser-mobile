@@ -10,17 +10,23 @@
     tools:context=".app.main.MainActivity">
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/toolbar"
+        android:id="@+id/collapse_toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:background="@color/github_black"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/background_gradient_black"
         app:layout_constraintBottom_toTopOf="@id/scroll_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:theme="@style/Theme.GithubUser"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
@@ -29,39 +35,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toBottomOf="@id/collapse_toolbar">
 
-        <TextView
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Stub"
-            android:textSize="24sp" />
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
 
     </androidx.core.widget.NestedScrollView>
-
-    <!-- <ImageView
-         android:id="@+id/iv_curve"
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:adjustViewBounds="true"
-         android:importantForAccessibility="no"
-         android:scaleType="fitXY"
-         android:src="@drawable/curve"
-         app:layout_constraintBottom_toTopOf="@id/scroll_view"
-         app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintRight_toRightOf="parent" />-->
-
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="8dp"
-        app:layout_constraintDimensionRatio="1.0"
-        app:layout_constraintTop_toTopOf="@id/toolbar"
-        app:layout_constraintStart_toStartOf="@id/toolbar"
-        android:src="@drawable/ic_baseline_arrow_back_24"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_avatar"
@@ -71,17 +53,18 @@
         app:layout_constraintDimensionRatio="1.0"
         android:layout_margin="20dp"
         android:src="@drawable/user1"
-        app:layout_constraintTop_toTopOf="@id/toolbar"
-        app:layout_constraintStart_toStartOf="@id/toolbar"
-        app:layout_constraintEnd_toEndOf="@id/toolbar" />
+        app:layout_constraintTop_toTopOf="@id/collapse_toolbar"
+        app:layout_constraintStart_toStartOf="@id/collapse_toolbar"
+        app:layout_constraintEnd_toEndOf="@id/collapse_toolbar" />
 
     <TextView
         android:id="@+id/tv_username"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="12dp"
+        android:gravity="start|center_vertical"
         tools:text="Place"
-        android:textColor="@color/github_white"
-        android:textSize="48sp"/>
+        android:textColor="@color/github_white"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

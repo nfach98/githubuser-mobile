@@ -19,7 +19,9 @@ class MotionActivity : AppCompatActivity() {
 
         val user = intent.getParcelableExtra<Item>(MainActivity.EXTRA_USER) as Item
 
-        supportActionBar?.hide()
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 //        binding.tvName.text = user.name
         binding.tvUsername.text = user.login

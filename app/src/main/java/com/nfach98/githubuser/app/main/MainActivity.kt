@@ -10,8 +10,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nfach98.githubuser.MotionActivity
 import com.nfach98.githubuser.R
-import com.nfach98.githubuser.app.detail.DetailActivity
 import com.nfach98.githubuser.app.favorite.FavoriteActivity
 import com.nfach98.githubuser.app.setting.SettingActivity
 import com.nfach98.githubuser.databinding.ActivityMainBinding
@@ -125,8 +125,8 @@ class MainActivity : AppCompatActivity() {
                 adapter = MainAdapter(it.items)
                 adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: Item) {
-                        val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                        intent.putExtra(EXTRA_USER, data.login)
+                        val intent = Intent(this@MainActivity, MotionActivity::class.java)
+                        intent.putExtra(EXTRA_USER, data)
                         startActivity(intent)
                     }
                 })
