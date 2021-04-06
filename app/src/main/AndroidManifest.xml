@@ -59,7 +59,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.detail.DetailActivity" />
+        <activity
+            android:name=".app.detail.DetailActivity"
+            android:theme="@style/Theme.GithubUser.NoActionBar" />
         <activity
             android:name=".MotionActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
