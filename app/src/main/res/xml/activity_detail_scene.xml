@@ -31,17 +31,17 @@
 
             <KeyAttribute
                 android:alpha="0.0"
-                motion:framePosition="100"
+                motion:framePosition="90"
                 motion:motionTarget="@+id/iv_avatar" />
 
             <KeyAttribute
                 android:alpha="0.0"
-                motion:framePosition="100"
+                motion:framePosition="90"
                 motion:motionTarget="@+id/tv_username" />
 
             <KeyAttribute
                 android:alpha="0.0"
-                motion:framePosition="100"
+                motion:framePosition="90"
                 motion:motionTarget="@+id/tv_bio" />
         </KeyFrameSet>
 
