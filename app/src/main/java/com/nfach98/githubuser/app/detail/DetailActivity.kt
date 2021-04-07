@@ -17,6 +17,7 @@ import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.db.UserApplication
+import com.nfach98.githubuser.helper.ImageHandler
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
@@ -63,15 +64,12 @@ class DetailActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             isUserOnDb = favoriteViewModel.getByUsername(username) != null
-            if(isUserOnDb) {
-                binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
-            }
+            setFab(isUserOnDb)
         }
         load(username)
     }
 
     private fun setupView(){
-//        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -87,9 +85,8 @@ class DetailActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main){
                         if (delete.isCompleted) {
                             Toast.makeText(this@DetailActivity, "${userDetail.login} berhasil dihapus dari favorit", Toast.LENGTH_SHORT).show()
-                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(
-                                ContextCompat.getColor(this@DetailActivity, R.color.github_link))
                             isUserOnDb = false
+                            setFab(isUserOnDb)
                         } else {
                             Toast.makeText(this@DetailActivity, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
                         }
@@ -102,9 +99,16 @@ class DetailActivity : AppCompatActivity() {
                     insert.join()
                     withContext(Dispatchers.Main){
                         if (insert.isCompleted) {
+                            userDetail.avatarUrl?.let { url ->
+                                val bitmap = ImageHandler.getBitmapFromUrl(this@DetailActivity, url)
+                                if (bitmap != null) {
+                                    ImageHandler.saveToStorage(bitmap, userDetail.id.toString(), contentResolver)
+                                }
+                            }
+
                             Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
-                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
                             isUserOnDb = true
+                            setFab(isUserOnDb)
                         } else {
                             Toast.makeText(this@DetailActivity, "Gagal menambah data", Toast.LENGTH_SHORT).show()
                         }
@@ -140,5 +144,19 @@ class DetailActivity : AppCompatActivity() {
                 }.attach()
             }
         })
+    }
+
+    private fun setFab(isUserOnDb: Boolean){
+        when(isUserOnDb){
+            true -> {
+                binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_action_negative))
+                binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this@DetailActivity, R.drawable.ic_baseline_favorite_24))
+            }
+            false -> {
+                binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(this@DetailActivity, R.color.github_link))
+                binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this@DetailActivity, R.drawable.ic_baseline_favorite_border_24))
+            }
+        }
     }
 }

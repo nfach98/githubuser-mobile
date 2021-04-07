@@ -34,7 +34,7 @@ class FavoriteActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.favorite)
 
-        adapter = FavoriteAdapter()
+        adapter = FavoriteAdapter(this@FavoriteActivity)
         binding.rvUsers.adapter = adapter
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.setHasFixedSize(true)
