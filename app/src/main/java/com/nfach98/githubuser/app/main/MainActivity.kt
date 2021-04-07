@@ -73,6 +73,13 @@ class MainActivity : AppCompatActivity() {
         sv?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
+                    binding.rvUsers.visibility = View.GONE
+
+                    binding.ivSearch.visibility = View.GONE
+                    binding.tvSearch.visibility = View.GONE
+
+                    binding.loading.visibility = View.VISIBLE
+
                     loadSearch(query)
                     sv.clearFocus()
                 }
@@ -114,14 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadSearch(search: String) {
-        binding.rvUsers.visibility = View.GONE
-        binding.loading.visibility = View.VISIBLE
-        binding.ivSearch.visibility = View.GONE
-        binding.tvSearch.visibility = View.GONE
-
         viewModel.getSearch(search).observe(this, {
-            binding.loading.visibility = View.GONE
-
             if (it != null) {
                 if(it.items.size > 0){
                     adapter = MainAdapter(it.items)
@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     })
 
+                    binding.loading.visibility = View.GONE
                     binding.rvUsers.visibility = View.VISIBLE
                     binding.rvUsers.adapter = adapter
                 }
@@ -142,9 +143,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else{
-                adapter = MainAdapter(arrayListOf())
-                binding.rvUsers.adapter = adapter
-
+                binding.loading.visibility = View.GONE
                 binding.ivOctocat.visibility = View.VISIBLE
                 binding.tvNothing.visibility = View.VISIBLE
             }
