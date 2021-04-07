@@ -71,9 +71,13 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupView(){
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.home.setOnClickListener {
+            finish()
+        }
 
         binding.btnFavorite.setOnClickListener {
             if(isUserOnDb){
@@ -83,7 +87,8 @@ class DetailActivity : AppCompatActivity() {
                     withContext(Dispatchers.Main){
                         if (delete.isCompleted) {
                             Toast.makeText(this@DetailActivity, "${userDetail.login} berhasil dihapus dari favorit", Toast.LENGTH_SHORT).show()
-                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this@DetailActivity, R.color.github_link))
+                            binding.btnFavorite.backgroundTintList = ColorStateList.valueOf(
+                                ContextCompat.getColor(this@DetailActivity, R.color.github_link))
                             isUserOnDb = false
                         } else {
                             Toast.makeText(this@DetailActivity, "Gagal menghapus data", Toast.LENGTH_SHORT).show()
@@ -114,14 +119,13 @@ class DetailActivity : AppCompatActivity() {
             if(it != null){
                 userDetail = it
 
-                binding.loading.visibility = View.GONE
+//                binding.loading.visibility = View.GONE
+                if(it.name == null) binding.tvName.visibility = View.GONE
+                if(it.bio == null) binding.tvBio.visibility = View.GONE
 
                 binding.tvName.text = it.name
                 binding.tvUsername.text = it.login
                 binding.tvBio.text = it.bio
-
-                if(it.name == null) binding.tvName.visibility = View.GONE
-                if(it.bio == null) binding.tvBio.visibility = View.GONE
 
                 Picasso.get().load(it.avatarUrl).into(binding.ivAvatar)
 

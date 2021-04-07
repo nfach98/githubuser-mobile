@@ -32,7 +32,7 @@ class DetailFollowFragment : Fragment() {
     private lateinit var binding: FragmentDetailFollowBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentDetailFollowBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,7 +51,7 @@ class DetailFollowFragment : Fragment() {
         if (username != null) {
             when(index){
                 0 -> {
-                    viewModel.getUserFollower(username).observe(this, {
+                    viewModel.getUserFollower(username).observe(viewLifecycleOwner, {
                         if(it != null){
                             val adapter = MainAdapter(it)
                             adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
@@ -62,12 +62,13 @@ class DetailFollowFragment : Fragment() {
                                 }
                             })
 
+                            binding.loading.visibility = View.GONE
                             binding.rvFollow.adapter = adapter
                         }
                     })
                 }
                 1 -> {
-                    viewModel.getUserFollowing(username).observe(this, {
+                    viewModel.getUserFollowing(username).observe(viewLifecycleOwner, {
                         if(it != null){
                             val adapter = MainAdapter(it)
                             adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
@@ -78,6 +79,7 @@ class DetailFollowFragment : Fragment() {
                                 }
                             })
 
+                            binding.loading.visibility = View.GONE
                             binding.rvFollow.adapter = adapter
                         }
                     })
