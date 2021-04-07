@@ -2,6 +2,7 @@
     <string name="app_name">Github User</string>
     <string name="user_avatar">User Avatar</string>
     <string name="search">Search</string>
+    <string name="search_user">Search username</string>
     <string name="setting">Settings</string>
     <string name="favorite">Favorite</string>
     <string name="following">Following</string>
@@ -13,7 +14,12 @@
     <string name="reminder_message">Let\'s find popular user on Github</string>
     <string name="reminder_set_up">Reminder is set up daily at 9 am</string>
 
+    <string name="no_data">Tidak Ada Data</string>
+    <string name="enter_your_search">Enter username to find user</string>
+
     <string name="empty_text">NO DATA</string>
+
+    <string name="octocat_logo">Octocat Logo</string>
 
     <string name="key_reminder" translatable="false">reminder</string>
     <string name="key_lang" translatable="false">lang</string>
@@ -122,7 +128,4 @@
         <item>@drawable/user10</item>
     </array>
     <string name="title_activity_home" translatable="false">MainActivity</string>
-    <string name="title_home" translatable="false">Home</string>
-    <string name="title_dashboard" translatable="false">Dashboard</string>
-    <string name="title_notifications" translatable="false">Notifications</string>
 </resources>

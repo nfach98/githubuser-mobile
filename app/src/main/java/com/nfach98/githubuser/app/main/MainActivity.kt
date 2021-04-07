@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         val sv = menu?.findItem(R.id.menu_search)?.actionView as androidx.appcompat.widget.SearchView?
 
         sv?.setSearchableInfo(sm.getSearchableInfo(componentName))
-        sv?.queryHint = resources.getString(R.string.search)
+        sv?.queryHint = resources.getString(R.string.search_user)
 
         sv?.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -116,25 +116,37 @@ class MainActivity : AppCompatActivity() {
     private fun loadSearch(search: String) {
         binding.rvUsers.visibility = View.GONE
         binding.loading.visibility = View.VISIBLE
+        binding.ivSearch.visibility = View.GONE
+        binding.tvSearch.visibility = View.GONE
 
         viewModel.getSearch(search).observe(this, {
             binding.loading.visibility = View.GONE
-            binding.rvUsers.visibility = View.VISIBLE
 
             if (it != null) {
-                adapter = MainAdapter(it.items)
-                adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
-                    override fun onItemClicked(data: Item) {
-                        val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                        intent.putExtra(EXTRA_USER, data.login)
-                        startActivity(intent)
-                    }
-                })
-                binding.rvUsers.adapter = adapter
+                if(it.items.size > 0){
+                    adapter = MainAdapter(it.items)
+                    adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
+                        override fun onItemClicked(data: Item) {
+                            val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                            intent.putExtra(EXTRA_USER, data.login)
+                            startActivity(intent)
+                        }
+                    })
+
+                    binding.rvUsers.visibility = View.VISIBLE
+                    binding.rvUsers.adapter = adapter
+                }
+                else{
+                    binding.ivOctocat.visibility = View.VISIBLE
+                    binding.tvNothing.visibility = View.VISIBLE
+                }
             }
             else{
                 adapter = MainAdapter(arrayListOf())
                 binding.rvUsers.adapter = adapter
+
+                binding.ivOctocat.visibility = View.VISIBLE
+                binding.tvNothing.visibility = View.VISIBLE
             }
         })
     }

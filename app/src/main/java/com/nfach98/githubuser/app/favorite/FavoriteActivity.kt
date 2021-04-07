@@ -80,6 +80,8 @@ class FavoriteActivity : AppCompatActivity() {
                 })
             } else {
                 adapter.users = ArrayList()
+                binding.ivOctocat.visibility = View.VISIBLE
+                binding.tvNothing.visibility = View.VISIBLE
             }
 
             binding.rvUsers.visibility = View.VISIBLE

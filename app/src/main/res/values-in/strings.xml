@@ -13,4 +13,8 @@
     <string name="reminder_summary">Setiap hari pukul 09.00</string>
     <string name="reminder_message">Ayo cari pengguna populer di Github</string>
     <string name="reminder_set_up">Pengingat diaktifkan untuk setiap hari pukul 09.00</string>
+    <string name="no_data">Tidak Ada Data</string>
+    <string name="octocat_logo">Logo Octocat</string>
+    <string name="enter_your_search">Masukkan nama pengguna untuk menemukan pengguna</string>
+    <string name="search_user">Cari nama pengguna</string>
 </resources>
