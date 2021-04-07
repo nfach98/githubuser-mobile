@@ -7,6 +7,8 @@ INJECTED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidMani
 MERGED from [androidx.databinding:viewbinding:4.1.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\1675df96b3e4b95f92e84df221444a89\jetified-viewbinding-4.1.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\de400dd43f2ef8b7a90a976823df8833\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [io.coil-kt:coil:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\d9e81337364321bc8330d766977e8cc1\jetified-coil-0.13.0\AndroidManifest.xml:2:1-9:12
+MERGED from [io.coil-kt:coil-base:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\7457eff3cbdd54625f19191d0651d04d\jetified-coil-base-0.13.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f2ea0cab74ac4467d3125ee42a945555\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity-ktx:1.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\da832cd885661fe3edcb76f4a670a2f6\jetified-activity-ktx-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -17,13 +19,13 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0] C:\Users\Nino Fac
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\29a83ccc893d5a5bc006ae5021009cca\jetified-lifecycle-runtime-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\7113c2e0e5d900c7974645159641b436\jetified-lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\d478fd87d264bcbb4cbefc372cdf466b\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f54caa0c69a5f4e9244f8a3aea988d55\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b041b6ee2d7a060461917849f2b3f98e\jetified-circleimageview-3.1.0\AndroidManifest.xml:2:1-11:12
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\a4d667f0cd9699476e359c2ec6d5d281\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\c28ac13800cd020ca675c125a51634f3\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -53,7 +55,6 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Nino Fachruroz
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ab8ce4c1cc4cf449286283d97134645d\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ef189473621988f1afb4726fbf468866\sqlite-framework-2.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\6cd3f5d7d511fd6d286514f4703cd88b\sqlite-2.0.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\e7187d5ca1ab8638c297465b9af4f62f\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\4bfbb9bd703aecbe177cf084e3b146b5\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9e1e04a78fbfbb7ad32217e669b5f477\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
@@ -64,8 +65,9 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Nino Fachrurozy\
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.3.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9bf7fbd32ffcd373ad6163d97ce5ec9d\lifecycle-livedata-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b50f8588a84df914eb9cdbb1904de26e\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\38dbb3c5498e179b18d3d4c5dad4dd82\exifinterface-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 INJECTED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:2:1-30:12
 INJECTED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:2:1-30:12
@@ -98,14 +100,14 @@ ADDED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifes
 		ADDED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:7:22-74
 application
 ADDED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml:9:5-24:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\53c83d306e922a17de670d29b8fc1d87\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b041b6ee2d7a060461917849f2b3f98e\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b041b6ee2d7a060461917849f2b3f98e\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:24:5-29:19
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:24:5-29:19
 MERGED from [androidx.core:core:1.3.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\5724419690274871c2fb5f6254f4f3e7\core-1.3.2\AndroidManifest.xml:24:5-89
@@ -160,6 +162,10 @@ MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\Nino Fa
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\de400dd43f2ef8b7a90a976823df8833\navigation-fragment-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment-ktx:1.2.4] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\cfa204ee286aa019aa81bd8731a5f08d\jetified-fragment-ktx-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [io.coil-kt:coil:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\d9e81337364321bc8330d766977e8cc1\jetified-coil-0.13.0\AndroidManifest.xml:5:5-7:41
+MERGED from [io.coil-kt:coil:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\d9e81337364321bc8330d766977e8cc1\jetified-coil-0.13.0\AndroidManifest.xml:5:5-7:41
+MERGED from [io.coil-kt:coil-base:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\7457eff3cbdd54625f19191d0651d04d\jetified-coil-base-0.13.0\AndroidManifest.xml:5:5-7:41
+MERGED from [io.coil-kt:coil-base:0.13.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\7457eff3cbdd54625f19191d0651d04d\jetified-coil-base-0.13.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-ui-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f92bd52c83e57cf1c53943007a5c583c\navigation-ui-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-runtime-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f2ea0cab74ac4467d3125ee42a945555\navigation-runtime-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
@@ -180,6 +186,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Nino
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\7113c2e0e5d900c7974645159641b436\jetified-lifecycle-livedata-core-ktx-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-common-ktx:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ac898b3c00892cccca059712160bd43d\navigation-common-ktx-2.2.2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-ui:2.2.2] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\bfbcc0fec5753c7931523e9c4b4e446a\navigation-ui-2.2.2\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\faecea335808a370d43ddf9ed7c5a1e9\material-1.3.0\AndroidManifest.xml:20:5-44
@@ -192,8 +200,6 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Nino Fachrurozy\.
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\f54caa0c69a5f4e9244f8a3aea988d55\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b041b6ee2d7a060461917849f2b3f98e\jetified-circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b041b6ee2d7a060461917849f2b3f98e\jetified-circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\9ad3a273f9ed05b45d2b3803ee929975\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.2.6] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\947edfe9e0b5a27681e85975ce007771\room-runtime-2.2.6\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\a4d667f0cd9699476e359c2ec6d5d281\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -252,8 +258,6 @@ MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Nino Fachrurozy\.g
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\ef189473621988f1afb4726fbf468866\sqlite-framework-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\6cd3f5d7d511fd6d286514f4703cd88b\sqlite-2.0.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite:2.0.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\6cd3f5d7d511fd6d286514f4703cd88b\sqlite-2.0.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\e7187d5ca1ab8638c297465b9af4f62f\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\e7187d5ca1ab8638c297465b9af4f62f\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\420b01c2d5bdc654455efaa038dd04d3\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\4bfbb9bd703aecbe177cf084e3b146b5\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
@@ -274,10 +278,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Nino Fac
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\b50f8588a84df914eb9cdbb1904de26e\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\5cbc89502a319375fe3d3baa8bb73643\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\02549924bd91c3a197cdc3f69b59ac10\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\2aa5e5a6a997d5c7425ecea4df76cd34\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\38dbb3c5498e179b18d3d4c5dad4dd82\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\38dbb3c5498e179b18d3d4c5dad4dd82\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Nino Fachrurozy\.gradle\caches\transforms-2\files-2.1\15aa155ad0ec2eb1991fa443b30ecfef\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 INJECTED from D:\Makaryo\2021\GithubUser\githubuserfavorite\src\main\AndroidManifest.xml

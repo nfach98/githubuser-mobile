@@ -1870,6 +1870,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id clockwise
+id coil_request_manager
 id collapseActionView
 id confirm_button
 id container

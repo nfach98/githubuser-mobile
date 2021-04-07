@@ -61,8 +61,6 @@ class FavoriteAdapter(val context: Context) : RecyclerView.Adapter<FavoriteAdapt
                 binding.ivAvatar,
                 context.contentResolver
             )
-
-//            Picasso.get().load(user.avatarUrl).into(binding.ivAvatar)
         }
     }
 

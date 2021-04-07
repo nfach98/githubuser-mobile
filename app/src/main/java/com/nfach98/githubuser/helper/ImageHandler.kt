@@ -30,14 +30,13 @@ class ImageHandler {
                     val contentValues = ContentValues().apply {
                         put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
                         put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
-                        put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+                        put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DCIM)
                     }
-                    val imageUri: Uri? =
-                        resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+                    val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
                     fos = imageUri?.let { resolver.openOutputStream(it) }
                 }
             } else {
-                val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
                 val image = File(imagesDir, filename)
                 fos = FileOutputStream(image)
             }
@@ -68,7 +67,7 @@ class ImageHandler {
                 val selection = MediaStore.Files.FileColumns.RELATIVE_PATH + " like ? AND " + MediaStore.MediaColumns.DISPLAY_NAME + " like ?"
 
                 val selectionargs = arrayOf(
-                    "%${Environment.DIRECTORY_PICTURES}%",
+                    "%${Environment.DIRECTORY_DCIM}%",
                     path
                 )
 
@@ -84,7 +83,7 @@ class ImageHandler {
                 val idColumn = cursor?.getColumnIndex(MediaStore.MediaColumns._ID)
 
                 while (cursor?.moveToNext() == true) {
-                    val photoUri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,cursor.getString(idColumn!!))
+                    val photoUri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getString(idColumn!!))
                     if (photoUri != null) {
                         var fileName:String ? = null
                         if (photoUri.toString().startsWith("file:")) {
@@ -98,14 +97,16 @@ class ImageHandler {
                                 }
                             }
                         }
+                        Log.e("PHOTO", "Name is$fileName")
                     }
+                    Log.e("PHOTO", "URI is$photoUri")
                     val stream = contentResolver.openInputStream(photoUri)
                     val bitmap = BitmapFactory.decodeStream(stream)
                     imageView.setImageBitmap(bitmap)
                 }
             }
             else {
-                val bitmap = BitmapFactory.decodeFile("${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/$path")
+                val bitmap = BitmapFactory.decodeFile("${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/$path")
                 imageView.setImageBitmap(bitmap)
             }
         }

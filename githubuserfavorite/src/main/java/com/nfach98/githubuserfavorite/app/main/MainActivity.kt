@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = getString(R.string.favorite)
 
-        adapter = MainAdapter()
+        adapter = MainAdapter(this@MainActivity)
         binding.rvUsers.adapter = adapter
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.setHasFixedSize(true)
@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity() {
                 adapter.users = list
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadNotesAsync()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
