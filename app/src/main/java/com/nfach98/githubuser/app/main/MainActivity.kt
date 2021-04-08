@@ -92,18 +92,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        /*MenuItemCompat.setOnActionExpandListener(menu?.findItem(R.id.search), object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
-                loadSearch("")
-                return true
-            }
-
-            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
-                loadSearch("")
-                return true
-            }
-        })*/
-
         return true
     }
 
