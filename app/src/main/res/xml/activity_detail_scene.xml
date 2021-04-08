@@ -223,6 +223,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
         </Constraint>
+        <Constraint
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
+            app:layout_constraintStart_toStartOf="@id/toolbar_image"
+            app:layout_constraintEnd_toEndOf="@id/toolbar_image">
+            <PropertySet
+                app:applyMotionScene="false"
+                app:visibilityMode="ignore" />
+        </Constraint>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/collapsed">
@@ -251,6 +263,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintTop_toTopOf="@id/toolbar_image"
             app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
             app:layout_constraintStart_toEndOf="@id/home" />
@@ -274,6 +287,19 @@
             app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
             app:layout_constraintEnd_toEndOf="@id/toolbar_image"
             app:layout_constraintStart_toStartOf="@id/toolbar_image" />
+
+        <Constraint
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
+            app:layout_constraintStart_toStartOf="@id/toolbar_image"
+            app:layout_constraintEnd_toEndOf="@id/toolbar_image">
+            <PropertySet
+                app:applyMotionScene="false"
+                app:visibilityMode="ignore" />
+        </Constraint>
 
     </ConstraintSet>
 

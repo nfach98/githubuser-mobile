@@ -125,7 +125,7 @@ class DetailActivity : AppCompatActivity() {
 
 //                binding.loading.visibility = View.GONE
                 if(it.name == null) binding.tvName.visibility = View.GONE
-                if(it.location == null) binding.tvLocation.visibility = View.GONE
+                if(it.location != null) binding.tvLocation.visibility = View.VISIBLE
                 if(it.bio == null) binding.tvBio.visibility = View.GONE
 
                 binding.tvName.text = it.name
