@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/github_black"
+    android:background="@color/github_link"
     tools:context="com.nfach98.githubuserfavorite.app.splash.SplashActivity">
 
     <ImageView

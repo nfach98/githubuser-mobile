@@ -1678,7 +1678,7 @@ int drawable abc_textfield_search_material 0x7f08005a
 int drawable abc_vector_test 0x7f08005b
 int drawable avd_hide_password 0x7f08005c
 int drawable avd_show_password 0x7f08005d
-int drawable background_gradient_black 0x7f08005e
+int drawable background_gradient_blue 0x7f08005e
 int drawable background_oval 0x7f08005f
 int drawable btn_checkbox_checked_mtrl 0x7f080060
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f080061

@@ -18,8 +18,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:fitsSystemWindows="true"
         android:scaleType="center"
-        android:src="@drawable/background_gradient_black"
-        android:background="@color/github_black" />
+        android:src="@drawable/background_gradient_blue"
+        android:background="@color/github_link" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#D8D7D7"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/toolbar_image"
         app:layout_constraintStart_toStartOf="@id/toolbar_image"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#D8D7D7"
         android:textSize="12sp"
         android:gravity="center_vertical"
         app:drawableStartCompat="@drawable/ic_baseline_location_24"
