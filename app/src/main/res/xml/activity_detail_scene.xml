@@ -214,6 +214,7 @@
                 app:attributeName="imageAlpha"
                 app:customIntegerValue="255" />
         </Constraint>
+
         <Constraint
             android:id="@id/tv_name"
             android:layout_width="wrap_content"
@@ -223,6 +224,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
         </Constraint>
+
         <Constraint
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
@@ -231,6 +233,19 @@
             app:layout_constraintTop_toBottomOf="@id/tv_username"
             app:layout_constraintStart_toStartOf="@id/toolbar_image"
             app:layout_constraintEnd_toEndOf="@id/toolbar_image">
+            <PropertySet
+                app:applyMotionScene="false"
+                app:visibilityMode="ignore" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
+            app:layout_constraintTop_toTopOf="@id/toolbar_image"
+            app:layout_constraintStart_toStartOf="@id/toolbar_image"
+            app:layout_constraintEnd_toEndOf="@id/toolbar_image" >
             <PropertySet
                 app:applyMotionScene="false"
                 app:visibilityMode="ignore" />
@@ -301,6 +316,18 @@
                 app:visibilityMode="ignore" />
         </Constraint>
 
+        <Constraint
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
+            app:layout_constraintTop_toTopOf="@id/toolbar_image"
+            app:layout_constraintStart_toStartOf="@id/toolbar_image"
+            app:layout_constraintEnd_toEndOf="@id/toolbar_image" >
+            <PropertySet
+                app:applyMotionScene="false"
+                app:visibilityMode="ignore" />
+        </Constraint>
     </ConstraintSet>
 
 </MotionScene>

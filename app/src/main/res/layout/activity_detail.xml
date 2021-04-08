@@ -21,14 +21,15 @@
         android:src="@drawable/background_gradient_black"
         android:background="@color/github_black" />
 
-    <!--<ProgressBar
+    <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateTint="@color/github_white"
         app:layout_constraintTop_toTopOf="@id/toolbar_image"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_image"
         app:layout_constraintStart_toStartOf="@id/toolbar_image"
-        app:layout_constraintEnd_toEndOf="@id/toolbar_image" />-->
+        app:layout_constraintEnd_toEndOf="@id/toolbar_image" />
 
     <ImageView
         android:id="@id/home"
