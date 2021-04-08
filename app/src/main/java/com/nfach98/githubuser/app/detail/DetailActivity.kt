@@ -125,10 +125,12 @@ class DetailActivity : AppCompatActivity() {
 
 //                binding.loading.visibility = View.GONE
                 if(it.name == null) binding.tvName.visibility = View.GONE
+                if(it.location == null) binding.tvLocation.visibility = View.GONE
                 if(it.bio == null) binding.tvBio.visibility = View.GONE
 
                 binding.tvName.text = it.name
                 binding.tvUsername.text = it.login
+                binding.tvLocation.text = it.location
                 binding.tvBio.text = it.bio
 
                 Picasso.get().load(it.avatarUrl).into(binding.ivAvatar)
