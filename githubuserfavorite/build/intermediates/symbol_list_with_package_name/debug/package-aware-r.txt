@@ -1679,6 +1679,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable background_gradient_black
 drawable background_oval
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1697,7 +1698,9 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_baseline_arrow_back_24
 drawable ic_baseline_favorite_24
+drawable ic_baseline_favorite_border_24
 drawable ic_baseline_keyboard_arrow_down_24
+drawable ic_baseline_location_24
 drawable ic_baseline_search_24
 drawable ic_baseline_settings_24
 drawable ic_clock_black_24dp
@@ -1705,6 +1708,7 @@ drawable ic_dashboard_black_24dp
 drawable ic_github_logo
 drawable ic_github_logo_24dp
 drawable ic_github_mark
+drawable ic_github_octocat
 drawable ic_home_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1847,7 +1851,6 @@ id beginning
 id blocking
 id bottom
 id bounce
-id btn_favorite
 id buttonPanel
 id cache_measures
 id cancel_action
@@ -1872,6 +1875,7 @@ id clip_vertical
 id clockwise
 id coil_request_manager
 id collapseActionView
+id collapsed
 id confirm_button
 id container
 id content
@@ -1921,6 +1925,7 @@ id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
+id expanded
 id expanded_menu
 id fade
 id fill
@@ -1965,7 +1970,6 @@ id labelGroup
 id labeled
 id largeLabel
 id layout
-id layout_detail
 id left
 id leftToRight
 id line1
@@ -2085,6 +2089,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scroll_view
 id scrollable
 id search_badge
 id search_bar
@@ -2167,6 +2172,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar_image
 id top
 id topPanel
 id touch_outside
@@ -2180,6 +2186,7 @@ id transition_transform
 id triangle
 id tv_bio
 id tv_favorite
+id tv_location
 id tv_name
 id tv_username
 id unchecked
@@ -2892,6 +2899,7 @@ style Theme_Design_Light_BottomSheetDialog
 style Theme_Design_Light_NoActionBar
 style Theme_Design_NoActionBar
 style Theme_GithubUser
+style Theme_GithubUser_NoActionBar
 style Theme_MaterialComponents
 style Theme_MaterialComponents_BottomSheetDialog
 style Theme_MaterialComponents_Bridge
@@ -3337,6 +3345,7 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml activity_detail_scene
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start

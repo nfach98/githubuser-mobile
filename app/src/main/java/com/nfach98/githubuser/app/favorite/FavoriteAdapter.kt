@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nfach98.githubuser.databinding.ItemUserBinding
-import com.nfach98.githubuser.helper.ImageHandler
 import com.nfach98.githubuser.model.UserDetail
+import com.squareup.picasso.Picasso
 
 class FavoriteAdapter(val context: Context) : RecyclerView.Adapter<FavoriteAdapter.UserViewHolder>() {
 
@@ -56,11 +56,7 @@ class FavoriteAdapter(val context: Context) : RecyclerView.Adapter<FavoriteAdapt
         fun bind(user: UserDetail) {
             itemView.setOnClickListener { onItemActionCallback?.onItemClicked(user) }
             binding.tvName.text = user.login
-            ImageHandler.loadImage(
-                "${user.id}.jpg",
-                binding.ivAvatar,
-                context.contentResolver
-            )
+            Picasso.get().load(user.avatarUrl).into(binding.ivAvatar)
         }
     }
 

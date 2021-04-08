@@ -17,7 +17,6 @@ import com.nfach98.githubuser.app.favorite.FavoriteViewModelFactory
 import com.nfach98.githubuser.app.main.MainActivity
 import com.nfach98.githubuser.databinding.ActivityDetailBinding
 import com.nfach98.githubuser.db.UserApplication
-import com.nfach98.githubuser.helper.ImageHandler
 import com.nfach98.githubuser.model.UserDetail
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
@@ -99,13 +98,6 @@ class DetailActivity : AppCompatActivity() {
                     insert.join()
                     withContext(Dispatchers.Main){
                         if (insert.isCompleted) {
-                            userDetail.avatarUrl?.let { url ->
-                                val bitmap = ImageHandler.getBitmapFromUrl(this@DetailActivity, url)
-                                if (bitmap != null) {
-                                    ImageHandler.saveToStorage(bitmap, userDetail.id.toString(), contentResolver)
-                                }
-                            }
-
                             Toast.makeText(this@DetailActivity, "Berhasil menambah data", Toast.LENGTH_SHORT).show()
                             isUserOnDb = true
                             setFab(isUserOnDb)
@@ -124,12 +116,17 @@ class DetailActivity : AppCompatActivity() {
                 userDetail = it
 
                 binding.loading.visibility = View.GONE
-                if(it.name == null) binding.tvName.visibility = View.GONE
                 if(it.location != null) binding.tvLocation.visibility = View.VISIBLE
                 if(it.bio == null) binding.tvBio.visibility = View.GONE
+                if(it.name == null) {
+                    binding.tvName.text = it.login
+                    binding.tvUsername.visibility = View.GONE
+                }
+                else{
+                    binding.tvName.text = it.name
+                    binding.tvUsername.text = it.login
+                }
 
-                binding.tvName.text = it.name
-                binding.tvUsername.text = it.login
                 binding.tvLocation.text = it.location
                 binding.tvBio.text = it.bio
 

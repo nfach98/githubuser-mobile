@@ -28,6 +28,9 @@
         android:theme="@style/Theme.GithubUser" >
         <activity android:name="com.nfach98.githubuserfavorite.app.main.MainActivity" >
         </activity>
+        <activity
+            android:name="com.nfach98.githubuserfavorite.app.detail.DetailActivity"
+            android:theme="@style/Theme.GithubUser.NoActionBar" />
         <activity android:name="com.nfach98.githubuserfavorite.app.splash.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

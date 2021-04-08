@@ -57,7 +57,7 @@ class DetailFollowFragment : Fragment() {
                             adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                                 override fun onItemClicked(data: Item) {
                                     val intent = Intent(context, DetailActivity::class.java)
-                                    intent.putExtra(MainActivity.EXTRA_USER, data)
+                                    intent.putExtra(MainActivity.EXTRA_USER, data.login)
                                     startActivity(intent)
                                 }
                             })
@@ -74,7 +74,7 @@ class DetailFollowFragment : Fragment() {
                             adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                                 override fun onItemClicked(data: Item) {
                                     val intent = Intent(context, DetailActivity::class.java)
-                                    intent.putExtra(MainActivity.EXTRA_USER, data)
+                                    intent.putExtra(MainActivity.EXTRA_USER, data.login)
                                     startActivity(intent)
                                 }
                             })

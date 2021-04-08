@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,11 +20,15 @@ public final class FragmentDetailFollowBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final ProgressBar loading;
+
+  @NonNull
   public final RecyclerView rvFollow;
 
-  private FragmentDetailFollowBinding(@NonNull FrameLayout rootView,
+  private FragmentDetailFollowBinding(@NonNull FrameLayout rootView, @NonNull ProgressBar loading,
       @NonNull RecyclerView rvFollow) {
     this.rootView = rootView;
+    this.loading = loading;
     this.rvFollow = rvFollow;
   }
 
@@ -54,13 +59,19 @@ public final class FragmentDetailFollowBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.loading;
+      ProgressBar loading = rootView.findViewById(id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.rv_follow;
       RecyclerView rvFollow = rootView.findViewById(id);
       if (rvFollow == null) {
         break missingId;
       }
 
-      return new FragmentDetailFollowBinding((FrameLayout) rootView, rvFollow);
+      return new FragmentDetailFollowBinding((FrameLayout) rootView, loading, rvFollow);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

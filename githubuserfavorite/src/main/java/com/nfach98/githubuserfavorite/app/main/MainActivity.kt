@@ -1,25 +1,28 @@
 package com.nfach98.githubuserfavorite.app.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nfach98.githubuserfavorite.app.detail.DetailActivity
 import com.nfach98.githubuserfavorite.model.UserDetail
 import com.nfach98.githubuserfavoritefavorite.R
 import com.nfach98.githubuserfavoritefavorite.databinding.ActivityFavoriteBinding
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val EXTRA_STATE = "EXTRA_STATE"
+        const val EXTRA_USER = "extra_user"
+    }
+
     private lateinit var adapter: MainAdapter
     private lateinit var binding: ActivityFavoriteBinding
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(contentResolver)
-    }
-
-    companion object {
-        private const val EXTRA_STATE = "EXTRA_STATE"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,13 +91,13 @@ class MainActivity : AppCompatActivity() {
 
             if (it.size > 0) {
                 adapter.users = it
-                /*adapter.setOnItemClickCallback(object : MainActivity.OnItemActionCallback {
+                adapter.setOnItemClickCallback(object : MainAdapter.OnItemActionCallback {
                     override fun onItemClicked(data: UserDetail) {
                         val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                        intent.putExtra(MainActivity.EXTRA_USER, data.login)
+                        intent.putExtra(EXTRA_USER, data.login)
                         startActivity(intent)
                     }
-                })*/
+                })
             } else {
                 adapter.users = ArrayList()
             }

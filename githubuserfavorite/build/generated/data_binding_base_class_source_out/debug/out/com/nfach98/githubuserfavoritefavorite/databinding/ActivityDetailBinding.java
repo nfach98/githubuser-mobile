@@ -4,15 +4,16 @@ package com.nfach98.githubuserfavoritefavorite.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.constraintlayout.motion.widget.MotionLayout;
+import androidx.constraintlayout.utils.widget.ImageFilterView;
+import androidx.core.widget.NestedScrollView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager2.widget.ViewPager2;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.nfach98.githubuserfavoritefavorite.R;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -22,25 +23,31 @@ import java.lang.String;
 
 public final class ActivityDetailBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final MotionLayout rootView;
 
   @NonNull
-  public final FloatingActionButton btnFavorite;
+  public final ImageView home;
 
   @NonNull
   public final CircleImageView ivAvatar;
 
   @NonNull
-  public final ConstraintLayout layoutDetail;
+  public final ProgressBar loading;
 
   @NonNull
-  public final ProgressBar loading;
+  public final NestedScrollView scrollView;
 
   @NonNull
   public final TabLayout tabs;
 
   @NonNull
+  public final ImageFilterView toolbarImage;
+
+  @NonNull
   public final TextView tvBio;
+
+  @NonNull
+  public final TextView tvLocation;
 
   @NonNull
   public final TextView tvName;
@@ -51,18 +58,20 @@ public final class ActivityDetailBinding implements ViewBinding {
   @NonNull
   public final ViewPager2 viewPager;
 
-  private ActivityDetailBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull FloatingActionButton btnFavorite, @NonNull CircleImageView ivAvatar,
-      @NonNull ConstraintLayout layoutDetail, @NonNull ProgressBar loading, @NonNull TabLayout tabs,
-      @NonNull TextView tvBio, @NonNull TextView tvName, @NonNull TextView tvUsername,
-      @NonNull ViewPager2 viewPager) {
+  private ActivityDetailBinding(@NonNull MotionLayout rootView, @NonNull ImageView home,
+      @NonNull CircleImageView ivAvatar, @NonNull ProgressBar loading,
+      @NonNull NestedScrollView scrollView, @NonNull TabLayout tabs,
+      @NonNull ImageFilterView toolbarImage, @NonNull TextView tvBio, @NonNull TextView tvLocation,
+      @NonNull TextView tvName, @NonNull TextView tvUsername, @NonNull ViewPager2 viewPager) {
     this.rootView = rootView;
-    this.btnFavorite = btnFavorite;
+    this.home = home;
     this.ivAvatar = ivAvatar;
-    this.layoutDetail = layoutDetail;
     this.loading = loading;
+    this.scrollView = scrollView;
     this.tabs = tabs;
+    this.toolbarImage = toolbarImage;
     this.tvBio = tvBio;
+    this.tvLocation = tvLocation;
     this.tvName = tvName;
     this.tvUsername = tvUsername;
     this.viewPager = viewPager;
@@ -70,7 +79,7 @@ public final class ActivityDetailBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public MotionLayout getRoot() {
     return rootView;
   }
 
@@ -95,9 +104,9 @@ public final class ActivityDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_favorite;
-      FloatingActionButton btnFavorite = rootView.findViewById(id);
-      if (btnFavorite == null) {
+      id = R.id.home;
+      ImageView home = rootView.findViewById(id);
+      if (home == null) {
         break missingId;
       }
 
@@ -107,15 +116,15 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.layout_detail;
-      ConstraintLayout layoutDetail = rootView.findViewById(id);
-      if (layoutDetail == null) {
-        break missingId;
-      }
-
       id = R.id.loading;
       ProgressBar loading = rootView.findViewById(id);
       if (loading == null) {
+        break missingId;
+      }
+
+      id = R.id.scroll_view;
+      NestedScrollView scrollView = rootView.findViewById(id);
+      if (scrollView == null) {
         break missingId;
       }
 
@@ -125,9 +134,21 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.toolbar_image;
+      ImageFilterView toolbarImage = rootView.findViewById(id);
+      if (toolbarImage == null) {
+        break missingId;
+      }
+
       id = R.id.tv_bio;
       TextView tvBio = rootView.findViewById(id);
       if (tvBio == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_location;
+      TextView tvLocation = rootView.findViewById(id);
+      if (tvLocation == null) {
         break missingId;
       }
 
@@ -149,8 +170,8 @@ public final class ActivityDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDetailBinding((CoordinatorLayout) rootView, btnFavorite, ivAvatar,
-          layoutDetail, loading, tabs, tvBio, tvName, tvUsername, viewPager);
+      return new ActivityDetailBinding((MotionLayout) rootView, home, ivAvatar, loading, scrollView,
+          tabs, toolbarImage, tvBio, tvLocation, tvName, tvUsername, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
