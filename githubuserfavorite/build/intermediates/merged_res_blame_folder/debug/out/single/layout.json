@@ -8,6 +8,10 @@
         "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_detail.xml"
     },
     {
+        "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\layout_main_action_bar.xml",
+        "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\layout_main_action_bar.xml"
+    },
+    {
         "merged": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_favorite.xml",
         "source": "D:\\Makaryo\\2021\\GithubUser\\githubuserfavorite\\src\\main\\res\\layout\\activity_favorite.xml"
     },

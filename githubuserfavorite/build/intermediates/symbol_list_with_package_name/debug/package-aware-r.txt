@@ -2287,6 +2287,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_detail_follow
 layout item_user
+layout layout_main_action_bar
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

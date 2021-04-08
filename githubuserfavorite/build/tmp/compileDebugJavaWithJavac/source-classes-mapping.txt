@@ -1,5 +1,7 @@
 com/nfach98/githubuserfavoritefavorite/databinding/ActivityDetailBinding.java
  com.nfach98.githubuserfavoritefavorite.databinding.ActivityDetailBinding
+com/nfach98/githubuserfavoritefavorite/databinding/LayoutMainActionBarBinding.java
+ com.nfach98.githubuserfavoritefavorite.databinding.LayoutMainActionBarBinding
 com/nfach98/githubuserfavoritefavorite/databinding/ActivitySplashBinding.java
  com.nfach98.githubuserfavoritefavorite.databinding.ActivitySplashBinding
 com/nfach98/githubuserfavoritefavorite/databinding/ActivityFavoriteBinding.java

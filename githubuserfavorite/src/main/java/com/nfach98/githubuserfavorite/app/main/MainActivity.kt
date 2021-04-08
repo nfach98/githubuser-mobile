@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nfach98.githubuserfavorite.app.detail.DetailActivity
@@ -30,34 +31,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = getString(R.string.favorite)
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.layout_main_action_bar)
 
         adapter = MainAdapter(this@MainActivity)
         binding.rvUsers.adapter = adapter
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.setHasFixedSize(true)
-
-        /*val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                noteViewModel.delete(noteAdapter.getNoteAt(viewHolder.adapterPosition))
-                Toast.makeText(
-                    this@MainActivity,
-                    getString(R.string.note_deleted),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-
-        })
-        itemTouchHelper.attachToRecyclerView(binding.rvUsers)*/
 
         if (savedInstanceState == null) {
             loadNotesAsync()
